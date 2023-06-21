@@ -9,7 +9,7 @@
             </label>
             <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li><a>Home</a></li>
-                <li><a>Animals</a></li>
+                <li><a href="/animal">Animals</a></li>
                 <li><a>About Us</a></li>
                 <li><a>Programs</a></li>
                 <li><a>Guidelines</a></li>
@@ -20,8 +20,8 @@
     </div>
     <div class="hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
-            <li><a>Home</a></li>
-            <li><a>Animals</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/animal">Animals</a></li>
             <li><a>About Us</a></li>
             <li><a>Programs</a></li>
             <li><a>Guidelines</a></li>
