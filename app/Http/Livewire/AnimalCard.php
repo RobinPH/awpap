@@ -7,6 +7,8 @@ use Livewire\Component;
 class AnimalCard extends Component
 {
     public $name;
+    public $age;
+    public $img;
 
     public function render()
     {

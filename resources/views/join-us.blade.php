@@ -1,7 +1,7 @@
 <x-layout>
     <div>
         <div class="grid grid-col-1 md:grid-cols-2">
-            <div class="bg-red-200 p-8">
+            <div class="p-8">
                 <img src="./assets/volunteer.jpg" alt="" class="h-full rounded-xl" />
             </div>
             <div class="flex flex-col justify-center">

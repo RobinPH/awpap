@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class AdoptCard extends Component
 {
+    public $img;
     public $name;
 
     public function render()

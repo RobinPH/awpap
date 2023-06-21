@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class InfoCard extends Component
 {
+    public $img;
     public $title;
     public $description;
 

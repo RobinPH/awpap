@@ -10,18 +10,15 @@
         <div class="flex flex-col justify-center">
             <div class="bg-sky-100 drop-shadow-xl border border-solid border-gray-200 m-8 rounded-xl">
                 <ul class="list-disc p-12 grid grid-cols-1 gap-6">
-                    <li>Submit the adoption application form</li>
-                    <li>Attend the Zoom interview</li>
-                    <li>Meet our shelter animals in person</li>
-                    <li>Visit your chosen pet to confirm your choice</li>
-                    <li>Wait for vet clearance and schedule pick up</li>
-                    <li>Take your pet home!</li>
+                    @foreach ($process as $proc)
+                        <li>{{ $proc }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
         <div>
             <div class="m-8">
-                <img src="/assets/adoption.png" alt=""
+                <img src={{ $img }} alt=""
                     class="drop-shadow-xl border broder-solid border-gray-200 rounded-xl" />
             </div>
         </div>

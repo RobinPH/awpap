@@ -24,7 +24,7 @@
     <div>
         <h1 class="font-bold text-center text-3xl pb-4">Our Stand</h1>
         @for ($i = 0; $i < 4; $i++)
-            <livewire:info-card title="sample"
+            <livewire:info-card img="./assets/store.jpg" title="sample"
                 description="Furfecto Veterinary Services is a leading clinic
                     providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
                     personalized attention and advanced medical expertise. From routine check-ups to specialized

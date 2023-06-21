@@ -6,9 +6,10 @@ use Livewire\Component;
 
 class GuidelineCard extends Component
 {
+    public $process = [];
     public $title;
     public $description;
-    public $process;
+    public $img;
 
     public function render()
     {
