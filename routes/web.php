@@ -45,3 +45,15 @@ Route::get('/sign-up', function () {
     return view('sign-up');
 });
 
+Route::get('/program-form', function () {
+    return view('program-form');
+});
+
+Route::get('/adoption-form', function () {
+    return view('adoption-form');
+});
+
+Route::get('/volunteer-form', function () {
+    return view('volunteer-form');
+});
+
