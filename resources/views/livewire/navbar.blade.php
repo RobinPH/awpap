@@ -29,6 +29,6 @@
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn">Sign Up</a>
+        <a class="btn" href="/sign-up">Sign Up</a>
     </div>
 </div>

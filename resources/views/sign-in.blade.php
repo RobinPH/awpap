@@ -26,8 +26,8 @@
                     </button>
                 </div>
 
-                <p class="text-center py-2">Already have an Account? <a href=""
-                        class="underline underline-offset-1">Sign In</a></p>
+                <p class="text-center py-2">Don't have an Account? <a href="/sign-up"
+                        class="underline underline-offset-1">Sign Up</a></p>
 
                 <p class="text-center py-4">or</p>
 
