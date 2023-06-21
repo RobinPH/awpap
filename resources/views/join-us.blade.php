@@ -1,10 +1,8 @@
 <x-layout>
     <div>
-        <div class="grid grid-cols-2">
-            <div>
-                <div class="bg-red-900 m-8">
-                    <img src="./assets/volunteer.jpg" alt="" class="rounded-xl" />
-                </div>
+        <div class="grid grid-col-1 md:grid-cols-2">
+            <div class="bg-red-200 p-8">
+                <img src="./assets/volunteer.jpg" alt="" class="h-full rounded-xl" />
             </div>
             <div class="flex flex-col justify-center">
                 <div class="m-8">
@@ -20,7 +18,7 @@
                     <div class="pt-4">
                         <button type="button"
                             class="font-bold text-white hover:bg-gray-800 bg-slate-950 rounded-full text-sm px-5 py-2.5 mr-2 mb-2">
-                            Share Your Stories
+                            Volunteer Now!
                         </button>
                     </div>
                 </div>

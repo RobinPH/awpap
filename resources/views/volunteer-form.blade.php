@@ -1,7 +1,7 @@
 <x-layout>
     <h1 class="text-center font-bold text-3xl pt-10 pb-6">Fill Up Volunteer Form</h1>
 
-    <div class="flex justify-center p-4">
+    <div class="flex-none md:flex md:justify-center p-4">
         <div class="bg-white p-16 md:w-9/12 rounded-xl drop-shadow-xl border border-solid border-gray-200">
             <div>
                 <h2 class="border-solid border-b-2 border-slate-950 font-bold text-2xl">Applicant's Info</h2>
@@ -32,10 +32,11 @@
 
                 <div class="pt-8 lg:px-32">
                     <label for="volunteer" class="">Type of Volunteer Work?<b class="text-red-500">*</b></p>
-                        <select name="volunteer" id="volunteer" class="w-full border border-slate-400 rounded-lg">
-                            <option value="volvo">Animal Care</option>
-                            <option value="saab">Office/Admin work</option>
-                            <option value="mercedes">Clinic</option>
+                        <div class="pb-4"></div>
+                        <select name="volunteer" id="volunteer" class="w-full p-2  border border-slate-400 rounded-lg">
+                            <option value="anima-care">Animal Care</option>
+                            <option value="office-admin">Office/Admin work</option>
+                            <option value="clinic">Clinic</option>
                         </select>
                 </div>
 

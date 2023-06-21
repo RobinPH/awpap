@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="grid grid-cols-2">
-        <div class="p-8 justify-items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-11">
+        <div class="col-span-5 p-8 justify-items-center">
             <div class="bg-white p-8 rounded-xl drop-shadow-xl">
                 <h1 class="text-center text-3xl font-bold pb-8 text-blue-950">Sign Up</h1>
 
@@ -46,8 +46,9 @@
             </div>
         </div>
 
-        <div class="hidden lg:block">
-            <img src="/assets/signIn.png" alt="" class="h-full">
+        <div class="bg-blue-200 col-span-6 hidden lg:block">
+            <img src="./assets/signup.png" alt="" class="h-full">
         </div>
+
     </div>
 </x-layout>

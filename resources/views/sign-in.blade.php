@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="grid grid-cols-2">
-        <div class="p-8 justify-items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-11">
+        <div class="col-span-5 p-8 justify-items-center">
             <div class="bg-white p-8 rounded-xl drop-shadow-xl">
                 <h1 class="text-center text-3xl font-bold pb-8 px-20 text-blue-950">Welcome back to Furfecto</h1>
 
@@ -14,8 +14,8 @@
                         <input type="checkbox" id="remember" name="remember" value="remember">
                         <label for="remember">Remember Password</label><br>
                     </div>
-                    <div>
-                        <a href="">forgot password?</a>
+                    <div class="py-6 flex justify-end">
+                        <a href="" class="underline underline-offset-1">forgot password?</a>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                     </button>
                 </div>
 
-                <p class="text-center py-2">Don't have an Account? <a href="/sign-up"
+                <p class="text-center py-2">Already have an Account? <a href=""
                         class="underline underline-offset-1">Sign In</a></p>
 
                 <p class="text-center py-4">or</p>
@@ -48,8 +48,10 @@
                 </div>
             </div>
         </div>
-        <div class="hidden lg:block">
-            <img src="/assets/signIn.png" alt="" class="h-full">
+
+        <div class="bg-blue-200 col-span-6 hidden lg:block">
+            <img src="./assets/signIn.png" alt="" class="h-full">
         </div>
+
     </div>
 </x-layout>

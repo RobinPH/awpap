@@ -24,13 +24,11 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-y-2 lg:gap-x-12">
                     <div>
                         <p class="pb-4 pt-8">Phone<b class="text-red-500">*</b></p>
-                        <input type="text" placeholder="First Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
                     <div>
                         <p class="pb-4 lg:pt-8">Email<b class="text-red-500">*</b></p>
-                        <input type="text" placeholder="Last Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
                     <div>
                         <p class="pb-4 lg:pt-8">Select Date<b class="text-red-500">*</b></p>
@@ -40,11 +38,11 @@
                     <div>
                         <p class="pb-4 lg:pt-8">Status<b class="text-red-500">*</b></p>
                         <div class="flex justify-between">
-                            <input type="radio" id="html" name="status" value="single">
+                            <input type="radio" id="status" name="status" value="single">
                             <label for="single">Single</label><br>
-                            <input type="radio" id="html" name="status" value="married">
+                            <input type="radio" id="status" name="status" value="married">
                             <label for="married">Married</label><br>
-                            <input type="radio" id="html" name="status" value="others">
+                            <input type="radio" id="status" name="status" value="others">
                             <label for="others">Others</label><br>
                         </div>
                     </div>
@@ -54,8 +52,7 @@
                             <p>Occupation<b class="text-red-500">*</b></p>
                             <p class="text-sm italic">Please type N/A if unemployed</p>
                         </div>
-                        <input type="text" placeholder="Last Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
 
                     <div>
@@ -63,8 +60,7 @@
                             <p>Social Media<b class="text-red-500">*</b></p>
                             <p class="text-sm italic">Please type N/A if no Social Media</p>
                         </div>
-                        <input type="text" placeholder="Last Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
 
                     <div>
@@ -105,19 +101,17 @@
                             class="w-full border-solid border-b-2 border-slate-400">
                     </div>
                     <div>
-                        <input type="text" placeholder="First Name"
+                        <input type="text" placeholder="Last Name"
                             class="w-full border-solid border-b-2 border-slate-400">
                     </div>
 
                     <div>
                         <p class="pb-4 lg:pt-8">Phone<b class="text-red-500">*</b></p>
-                        <input type="text" placeholder="First Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
                     <div>
                         <p class="pb-4 lg:pt-8">Email<b class="text-red-500">*</b></p>
-                        <input type="text" placeholder="Last Name"
-                            class="w-full border-solid border-b-2 border-slate-400">
+                        <input type="text" class="w-full border-solid border-b-2 border-slate-400">
                     </div>
                 </div>
 
@@ -166,7 +160,7 @@
                     <div>
                         <p class=" lg:pt-8 pb-2">Describe your ideal pet, including its sex, age, appearance,
                             temperament, etc.</p>
-                        <textarea name="" id="" rows="10" placeholder="Pregant? Inheat? Watery Poop?"
+                        <textarea name="" id="" rows="10"
                             class="px-4 lg:py-2 w-full border border-solid border-b-2 border-slate-400"></textarea>
                     </div>
 
@@ -262,9 +256,9 @@
                     </div>
 
                     <div>
-                        <p class=" lg:pt-8 pb-2">DWhat steps will you take to introduce your new pet to his/her new
+                        <p class=" lg:pt-8 pb-2">What steps will you take to introduce your new pet to his/her new
                             surroundings?<b class="text-red-500">*</b></p>
-                        <textarea name="" id="" rows="10" placeholder="Pregant? Inheat? Watery Poop?"
+                        <textarea name="" id="" rows="10"
                             class="px-4 lg:py-2 w-full border border-solid border-b-2 border-slate-400"></textarea>
                     </div>
 
