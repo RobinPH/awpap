@@ -51,7 +51,10 @@ Route::get('/sign-up', function () {
 
 
 //Data Fetching
+Route::get('/', [animalsController::class, 'getDogsAndCats']);
+
 
 Route::get('/animal', [animalsController::class, 'getAnimals']);
-Route::get('/', [animalsController::class, 'getDogsAndCats']);
+
+
 
