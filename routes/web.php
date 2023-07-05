@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\animalsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,12 @@ Route::get('/sign-in', function () {
 Route::get('/sign-up', function () {
     return view('sign-up');
 });
+
+
+
+
+//Data Fetching
+
+Route::get('/animal', [animalsController::class, 'getAnimals']);
+Route::get('/', [animalsController::class, 'getDogsAndCats']);
 

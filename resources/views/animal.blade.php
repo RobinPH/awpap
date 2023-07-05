@@ -13,9 +13,10 @@
     <div class="max-w-6xl mx-auto justify-center items-center">
         <h1 class="font-bold text-3xl text-center p-8">Our Dogs</h1>
         <div class="grid gap-2 grid-cols-1 sm:grid-cols-4 justify-items-center p-3">
-            @for ($i = 0; $i < 4; $i++)
-                <livewire:adopt-card name="Sample"></livewire:adopt-card>
-            @endfor
+
+            @foreach ($animals as $animal)
+                <livewire:adopt-card :animal="$animal"/>
+            @endforeach
 
         </div>
     </div>

@@ -10,19 +10,19 @@
     <div class="max-w-6xl mx-auto justify-center items-center">
         <h1 class="font-bold text-3xl text-center p-8">Meet Our Dogs</h1>
         <div class="grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-center p-3">
-            @for ($i = 0; $i < 6; $i++)
-                <livewire:animal-card name="Sample"></livewire:animal-card> 
-            @endfor
-            
+            @foreach ($dogs as $animal)
+                <livewire:animal-card :animal='$animal'/>
+            @endforeach
+
         </div>
     </div>
 
     <div class="max-w-6xl mx-auto justify-center items-center">
         <h1 class="font-bold text-3xl text-center p-8">Meet Our Cats</h1>
         <div class="grid grid-cols-1 sm:grid-cols-3 justify-items-center p-3">
-            @for ($i = 0; $i < 6; $i++)
-                <livewire:animal-card name="sample2"></livewire:animal-card> 
-            @endfor
+            @foreach ($cats as $animal)
+            <livewire:animal-card :animal='$animal'/>
+        @endforeach
         </div>
     </div>
 
@@ -45,7 +45,7 @@
         <div class="flex flex-wrap md:flex-nowrap gap-6 justify-center">
             <livewire:article-card></livewire:article-card>
             <livewire:article-card></livewire:article-card>
-            <livewire:article-card></livewire:article-card> 
+            <livewire:article-card></livewire:article-card>
         </div>
     </div>
 
@@ -64,7 +64,7 @@
                     </button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </x-layout>

@@ -6,7 +6,12 @@ use Livewire\Component;
 
 class AdoptCard extends Component
 {
-    public $name;
+    public $animal;
+
+    public function mount($animal)
+    {
+        $this->animal = $animal;
+    }
 
     public function render()
     {
