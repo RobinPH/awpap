@@ -7,8 +7,6 @@ use App\Models\animal;
 
 class animalsController extends Controller
 {
-
-
     public function getDogsAndCats()
     {
         $dogs = animal::where('type', 'Dog')->skip(0)->take(6)->get();
@@ -22,5 +20,11 @@ class animalsController extends Controller
         $dogs = animal::where('type', 'Dog')->get();
         $cats = animal::where('type', 'Cat')->get();
         return view('/animal', compact('animals', 'cats', 'dogs'));
+    }
+
+    public function getPets()
+    {
+        $pets = animal::all();
+        return view('/Admin/pets', compact('pets'));
     }
 }

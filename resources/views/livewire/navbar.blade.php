@@ -8,12 +8,12 @@
                 </svg>
             </label>
             <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                <li><a>Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/animal">Animals</a></li>
-                <li><a>About Us</a></li>
-                <li><a>Programs</a></li>
-                <li><a>Guidelines</a></li>
-                <li><a>Join Us</a></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/program">Programs</a></li>
+                <li><a href="/guideline">Guidelines</a></li>
+                <li><a href="/join-us">Join Us</a></li>
             </ul>
         </div>
         <a class="text-xl normal-case btn btn-ghost">FURFECTO</a>
@@ -22,10 +22,10 @@
         <ul class="px-1 menu menu-horizontal">
             <li><a href="/">Home</a></li>
             <li><a href="/animal">Animals</a></li>
-            <li><a>About Us</a></li>
-            <li><a>Programs</a></li>
-            <li><a>Guidelines</a></li>
-            <li><a>Join Us</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/program">Programs</a></li>
+            <li><a href="/guideline">Guidelines</a></li>
+            <li><a href="/join-us">Join Us</a></li>
         </ul>
     </div>
     <div class="navbar-end">
