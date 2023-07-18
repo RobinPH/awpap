@@ -12,11 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('title');
-            $table->string('short_description');
+            $table->uuid('id')->primary();
+            $table->string('title', 256);
+            $table->string('author', 128);
+            $table->dateTime('date_published');
+            $table->string('description', 2048);
+
+            $table->uuid("thumbnail_id")->nullable();
+            $table->foreign('thumbnail_id')->references('id')->on('images')->onDelete("cascade");
+
             $table->string('link');
-            $table->string('imageUrl');
+
+            $table->timestamps();
         });
     }
 

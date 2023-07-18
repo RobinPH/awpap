@@ -2,14 +2,18 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Article;
 use Livewire\Component;
 
 class ArticleCard extends Component
 {
-    public $img;
-    public $title;
-    public $date;
-    public $publisher;
+    /** @var Article $article */
+    public $article;
+
+    public function mount($article)
+    {
+        $this->article = $article;
+    }
 
     public function render()
     {

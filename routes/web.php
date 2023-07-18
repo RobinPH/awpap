@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\animalsController;
-use App\Http\Controllers\ArticlesController;
+use App\Models\Animal;
+use App\Models\AnimalType;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $catType = AnimalType::query()->where("type", "CAT")->first();
+    $dogType = AnimalType::query()->where("type", "DOG")->first();
+
+    $cats = Animal::query()->inRandomOrder()->where("type_id", $catType->id)->limit(3)->get();
+    $dogs = Animal::query()->inRandomOrder()->where("type_id", $dogType->id)->limit(3)->get();
+    $articles = Article::query()->inRandomOrder()->limit(3)->get();
+
+    return view('index', [
+        "cats" => $cats,
+        "dogs" => $dogs,
+        "articles" => $articles,
+    ]);
 });
 
 Route::get('/animal', function () {
@@ -85,11 +97,11 @@ Route::get('/Admin/users', function () {
 
 
 //Data Fetching
-Route::get('/', [animalsController::class, 'getDogsAndCats']);
+// Route::get('/', [animalsController::class, 'getDogsAndCats']);
 
-Route::get('/animal', [animalsController::class, 'getAnimals']);
+// Route::get('/animal', [animalsController::class, 'getAnimals']);
 
-Route::get('/Admin/pets', [animalsController::class, 'getPets']);
+// Route::get('/Admin/pets', [animalsController::class, 'getPets']);
 
-Route::get('/Admin/articles', [ArticlesController::class, 'getArticles']);
+// Route::get('/Admin/articles', [ArticlesController::class, 'getArticles']);
 

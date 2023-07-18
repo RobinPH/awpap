@@ -48,9 +48,9 @@
     <div class="items-center justify-center p-2">
         <h1 class="p-8 text-3xl font-bold text-center">Aritcles</h1>
         <div class="flex flex-wrap justify-center gap-6 md:flex-nowrap">
-            <livewire:article-card></livewire:article-card>
-            <livewire:article-card></livewire:article-card>
-            <livewire:article-card></livewire:article-card>
+            @foreach ($articles as $article)
+                <livewire:article-card :article='$article'></livewire:article-card>
+            @endforeach
         </div>
     </div>
 
