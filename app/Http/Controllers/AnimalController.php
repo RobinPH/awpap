@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Animal;
 
-class animalsController extends Controller
+class AnimalsController extends Controller
 {
     public function getDogsAndCats()
     {

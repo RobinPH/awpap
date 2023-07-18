@@ -32,7 +32,11 @@ Route::get('/', function () {
 });
 
 Route::get('/animal', function () {
-    return view('animal');
+    $animals_sample = Animal::query()->inRandomOrder()->limit(12)->get();
+
+    return view('animal', [
+        "animals_sample" => $animals_sample,
+    ]);
 });
 
 Route::get('/about-us', function () {
