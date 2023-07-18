@@ -7,6 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="assets/logowhite.png" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -21,9 +22,23 @@
 </head>
 
 <body data-theme="corporate" class="font-[Poppins]">
-    <livewire:navbar />
-    {{ $slot }}
-    <livewire:footer />
+
+
+    {{--FOR USERS LAYOUT--}}
+    <livewire:navbar/>
+        {{ $slot }}
+    <livewire:footer/>
+
+
+    {{--FOR ADMINS LAYOUT
+    <div class="flex">
+        <livewire:admin-navbar/>
+        <div class="flex flex-grow flex-col">
+            <livewire:admin-topbar/>
+            {{ $slot }}
+        </div>
+    </div>--}}
+
 
     @livewireScripts
 </body>

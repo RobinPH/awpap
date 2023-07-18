@@ -1,8 +1,8 @@
 <div>
     <div class="w-48 h-48">
-        <img class="w-full h-full object-cover" src={{ $img }} alt="">
+        <img class="object-cover w-full h-full" src={{ $animal['imageUrl'] }} alt={{ $animal['name'] }}>
     </div>
 
-    <p><b>{{ $name }}</b></p>
-    <p>{{ $age }}</p>
+    <p><b>{{ $animal['name'] }}</b></p>
+    <p>{{ $animal['Age'] }}</p>
 </div>

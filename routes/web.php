@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\animalsController;
+use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,4 +58,38 @@ Route::get('/adoption-form', function () {
 Route::get('/volunteer-form', function () {
     return view('volunteer-form');
 });
+
+Route::get('/Admin/dashboard', function () {
+    return view('Admin/dashboard');
+});
+
+Route::get('/Admin/pets', function () {
+    return view('Admin/pets');
+});
+
+Route::get('/Admin/articles', function () {
+    return view('Admin/articles');
+});
+
+Route::get('/Admin/schedule', function () {
+    return view('Admin/schedule');
+});
+
+Route::get('/Admin/adoption', function () {
+    return view('Admin/adoption');
+});
+
+Route::get('/Admin/users', function () {
+    return view('Admin/users');
+});
+
+
+//Data Fetching
+Route::get('/', [animalsController::class, 'getDogsAndCats']);
+
+Route::get('/animal', [animalsController::class, 'getAnimals']);
+
+Route::get('/Admin/pets', [animalsController::class, 'getPets']);
+
+Route::get('/Admin/articles', [ArticlesController::class, 'getArticles']);
 
