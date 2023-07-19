@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Image withoutTrashed()
  * @property \Illuminate\Support\Carbon $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|Image whereDeletedAt($value)
+ * @method static \Database\Factories\ImageFactory factory($count = null, $state = [])
  * @mixin \Eloquent
  */
 class Image extends Model

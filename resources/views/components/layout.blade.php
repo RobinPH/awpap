@@ -8,10 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="assets/logowhite.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap"
+        rel="stylesheet">
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <title>AWPAP</title>
 
@@ -24,20 +26,20 @@
 <body data-theme="corporate" class="font-[Poppins]">
 
 
-    {{--FOR USERS LAYOUT--}}
-    <livewire:navbar/>
-        {{ $slot }}
-    <livewire:footer/>
+    {{-- FOR USERS LAYOUT --}}
+    <livewire:navbar />
+    {{ $slot }}
+    <livewire:footer />
 
 
-    {{--FOR ADMINS LAYOUT
+    {{-- FOR ADMINS LAYOUT
     <div class="flex">
         <livewire:admin-navbar/>
-        <div class="flex flex-grow flex-col">
+        <div class="flex flex-col flex-grow">
             <livewire:admin-topbar/>
             {{ $slot }}
         </div>
-    </div>--}}
+    </div> --}}
 
 
     @livewireScripts

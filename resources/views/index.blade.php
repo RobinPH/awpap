@@ -11,17 +11,16 @@
 
     <div class="items-center justify-center max-w-6xl mx-auto">
         <h1 class="p-8 text-3xl font-bold text-center">Meet Our Dogs</h1>
-        <div class="grid grid-cols-1 gap-6 p-3 sm:grid-cols-3 justify-items-center">
+        <div class="grid grid-cols-1 gap-6 p-3 md:grid-cols-3 justify-items-center">
             @foreach ($dogs as $animal)
                 <livewire:animal-card :animal='$animal' />
             @endforeach
-
         </div>
     </div>
 
     <div class="items-center justify-center max-w-6xl mx-auto">
         <h1 class="p-8 text-3xl font-bold text-center">Meet Our Cats</h1>
-        <div class="grid grid-cols-1 p-3 sm:grid-cols-3 justify-items-center">
+        <div class="grid grid-cols-1 gap-6 p-3 md:grid-cols-3 justify-items-center">
             @foreach ($cats as $animal)
                 <livewire:animal-card :animal='$animal' />
             @endforeach

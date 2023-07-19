@@ -44,6 +44,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Animal whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Animal whereUpdatedAt($value)
+ * @property-read mixed $age_months
+ * @property-read mixed $age_months_string
  * @mixin \Eloquent
  */
 class Animal extends Model
@@ -52,16 +54,37 @@ class Animal extends Model
 
     public function type(): HasOne
     {
-        return $this->hasOne(AnimalType::class);
+        return $this->hasOne(AnimalType::class, "id", "type_id");
     }
 
     public function sex(): HasOne
     {
-        return $this->hasOne(AnimalSex::class);
+        return $this->hasOne(AnimalSex::class, "id", "sex_id");
     }
 
     public function getAgeAttribute() {
         return floor(date_diff(date_create($this->birthdate), date_create(date("Y-m-d")))->format('%y'));
+    }
+
+    public function getAgeMonthsAttribute() {
+        return floor(date_diff(date_create($this->birthdate), date_create(date("Y-m-d")))->format('%m'));
+    }
+
+    public function getAgeMonthsStringAttribute() {
+        $age_months = $this->getAgeMonthsAttribute() % 12;
+        $age_years = floor($this->getAgeMonthsAttribute() / 12);
+
+        $str = "";
+
+        if ($age_years != 0 || $age_months == 0) {
+            $str .= $age_years . " " . "years ";
+        } else if ($age_months != 0) {
+            $str .= $age_months . " " . "months ";
+        }
+
+        $str .= "old";
+
+        return $str;
     }
 
     public function thumbnail(): HasOne

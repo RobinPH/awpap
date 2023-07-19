@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid("id")->primary();
             $table->string("title")->nullable();
             $table->string("description")->nullable();
-            $table->dateTime("deleted_at");
+            $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });
     }

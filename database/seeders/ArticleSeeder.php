@@ -18,7 +18,7 @@ class ArticleSeeder extends Seeder
             Article::query()->create([
                 "title" => fake()->text(32),
                 "author" => fake()->userName(),
-                "date_published" => fake()->dateTime(),
+                "date_published" => fake()->dateTimeBetween("-3 years"),
                 "description" => fake()->realText(1024),
                 "link" => fake()->url(),
             ]);

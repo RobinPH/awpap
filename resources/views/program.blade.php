@@ -1,13 +1,14 @@
 <x-layout>
     <div>
-        <div class="grid grid-cols-1 justify-items-center p-10 gap-10 text-center">
+        <div class="grid grid-cols-1 gap-10 p-10 text-center justify-items-center">
             <h1 class="text-3xl font-bold"><b class="text-blue-500">Programs</b> Offered</h1>
             <p class=" lg:pr-80 lg:pl-80">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quis ratione
                 officia neque excepturi similique quasi aspernatur cupiditate, quae accusamus!</p>
-            <button type="button"
-                class="font-bold text-white hover:bg-gray-800 bg-slate-950 rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
+            <a type="button"
+                class="font-bold text-white hover:bg-gray-800 bg-slate-950 rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                href="./program-form">
                 Book Now
-            </button>
+            </a>
         </div>
     </div>
 
