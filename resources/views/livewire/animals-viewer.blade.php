@@ -38,9 +38,8 @@
     <dialog id="animal_modal" class=" modal">
         <form method="dialog" class="w-1/2 max-w-5xl modal-box">
             <div class="flex gap-4">
-                <figure><img class="object-cover w-80 h-80"
-                        src={{ $animal->thumbnail ? './storage/images/' . $animal->thumbnail->id : './assets/dog1.jpg' }}
-                        alt={{ $animal->name }} /></figure>
+                <figure><img class="object-cover w-80 h-80" x-bind:src="animal.thumbnail_url" />
+                </figure>
                 <div class="flex flex-col w-full">
                     <h3 class="w-full text-lg font-bold text-center" x-text="animal.name"></h3>
                     <div>
