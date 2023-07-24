@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.user>
     <div>
         <div class="grid grid-cols-1 gap-10 p-10 text-center justify-items-center">
             <h1 class="text-3xl font-bold"><b class="text-blue-500">Programs</b> Offered</h1>
@@ -24,4 +24,4 @@
                     pet healthcare." />
         @endfor
     </div>
-</x-layout>
+</x-layout.user>

@@ -17,9 +17,19 @@ return new class extends Migration
             $table->string("address_line_1", 1024);
             $table->string("address_line_2", 1024)->nullable();
 
-            $table->string("city", 128);
-            $table->string("region", 128);
-            $table->string("zip_code", 128);
+            $table->uuid("region_id");
+            $table->foreign('region_id')->references('id')->on('address_regions');
+
+            $table->uuid("province_id");
+            $table->foreign('province_id')->references('id')->on('address_provinces');
+
+            $table->uuid("municipality_id");
+            $table->foreign('municipality_id')->references('id')->on('address_municipalities');
+
+            $table->uuid("barangay_id");
+            $table->foreign('barangay_id')->references('id')->on('address_barangays');
+
+            $table->string("zip_code", 6);
 
             $table->timestamps();
         });

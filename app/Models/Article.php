@@ -40,6 +40,15 @@ class Article extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $fillable = [
+        "title",
+        "author",
+        "date_published",
+        "description",
+        "link",
+        "thumbnail_id",
+    ];
+
     public function thumbnail(): HasOne
     {
         return $this->hasOne(Image::class, 'id', 'thumbnail_id');

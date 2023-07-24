@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.user>
     <div class="items-center justify-center h-full max-w-2xl p-8 mx-auto text-center md:flex ">
         <div class="items-center justify-center max-w-2xl text-center">
             <h1 class="text-3xl font-bold">Every Pet Deserves a Loving Home.</h1>
@@ -74,4 +74,4 @@
 
         </div>
     </div>
-</x-layout>
+</x-layout.user>

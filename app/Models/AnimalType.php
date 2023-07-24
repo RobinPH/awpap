@@ -27,4 +27,10 @@ use Illuminate\Database\Eloquent\Model;
 class AnimalType extends Model
 {
     use HasFactory, HasUuids;
+
+    protected $fillable = [
+        'type',
+        'description',
+    ];
+
 }

@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\Animals\ProfilesController;
+use App\Http\Controllers\Admin\Animals\SexesController;
+use App\Http\Controllers\Admin\Animals\TypesController;
+use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\User\UserProfileController;
 use App\Models\Animal;
 use App\Models\AnimalType;
 use App\Models\Article;
@@ -75,28 +80,94 @@ Route::get('/volunteer-form', function () {
     return view('volunteer-form');
 });
 
-Route::get('/Admin/dashboard', function () {
-    return view('Admin/dashboard');
+// Route::get('/Admin/pets', function () {
+//     return view('Admin/pets');
+// });
+
+// Route::get('/Admin/articles', function () {
+//     return view('Admin/articles');
+// });
+
+// Route::get('/Admin/schedule', function () {
+//     return view('Admin/schedule');
+// });
+
+// Route::get('/Admin/adoption', function () {
+//     return view('Admin/adoption');
+// });
+
+// Route::get('/Admin/users', function () {
+//     return view('Admin/users');
+// });
+
+Route::get("/profile", [UserProfileController::class, "showPersonalDetails"])->middleware(['auth:sanctum'])->name("profile");
+
+Route::prefix("admin")->middleware(['auth:sanctum', 'permissions:admin'])->group(function () {
+    Route::get("/dashboard", function () {
+        return view("admin.dashboard");
+    })->name("admin:dashboard");
+
+    Route::prefix("/animals")->group(function() {
+        Route::get("/", [ProfilesController::class, 'show'])
+            ->middleware(["permissions:animal:profile:read"])
+            ->name("animals:profiles");
+
+        Route::get('/types', [TypesController::class, 'show'])
+            ->middleware(["permissions:animal:type:read"])
+            ->name("animals:types");
+
+        Route::get('/sexes', [SexesController::class, 'show'])
+            ->middleware(["permissions:animal:sex:read"])
+            ->name("animals:sexes");
+    });
+
+    Route::get("/articles", [ArticlesController::class, "show"])
+        ->middleware(["permissions:article:read"])
+        ->name("articles");
 });
 
-Route::get('/Admin/pets', function () {
-    return view('Admin/pets');
-});
+Route::prefix("api")->middleware(['auth:sanctum', 'permissions:admin'])->group(function () {
+    Route::prefix("/animal")->group(function() {
+        Route::prefix("/profile")->group(function () {
+            Route::post('/create', [ProfilesController::class, "create"])
+                ->middleware(["permissions:animal:profile:create"])
+                ->name("animal:profile:create");
 
-Route::get('/Admin/articles', function () {
-    return view('Admin/articles');
-});
+            Route::post('/edit', [ProfilesController::class, "edit"])
+                ->middleware(["permissions:animal:profile:edit"])
+                ->name("animal:profile:edit");
+        });
 
-Route::get('/Admin/schedule', function () {
-    return view('Admin/schedule');
-});
+        Route::prefix("/type")->group(function () {
+            Route::post('/create', [TypesController::class, "create"])
+                ->middleware(["permissions:animal:type:create"])
+                ->name("animal:type:create");
 
-Route::get('/Admin/adoption', function () {
-    return view('Admin/adoption');
-});
+            Route::post('/edit', [TypesController::class, "edit"])
+                ->middleware(["permissions:animal:type:edit"])
+                ->name("animal:type:edit");
+        });
 
-Route::get('/Admin/users', function () {
-    return view('Admin/users');
+        Route::prefix("/sex")->group(function () {
+            Route::post('/create', [SexesController::class, "create"])
+                ->middleware(["permissions:animal:sex:create"])
+                ->name("animal:sex:create");
+
+            Route::post('/edit', [SexesController::class, "edit"])
+                ->middleware(["permissions:animal:sex:edit"])
+                ->name("animal:sex:edit");
+        });
+    });
+
+    Route::prefix("/article")->group(function () {
+        Route::post('/create', [ArticlesController::class, "create"])
+            ->middleware(["permissions:article:create"])
+            ->name("article:create");
+
+        Route::post('/edit', [ArticlesController::class, "edit"])
+            ->middleware(["permissions:article:edit"])
+            ->name("article:edit");
+    });
 });
 
 
@@ -105,7 +176,6 @@ Route::get('/Admin/users', function () {
 
 // Route::get('/animal', [animalsController::class, 'getAnimals']);
 
-// Route::get('/Admin/pets', [animalsController::class, 'getPets']);
 
 // Route::get('/Admin/articles', [ArticlesController::class, 'getArticles']);
 

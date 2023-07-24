@@ -1,8 +1,8 @@
-<x-layout>
+<x-layout.admin>
     <div class="p-5 space-y-3">
-        <h1 class="font-bold text-2xl">Adoption</h1>
-        <div class=" navbar-center flex bg-stone-300 justify-center">
-            <ul class="px-1 menu menu-horizontal text-lg">
+        <h1 class="text-2xl font-bold">Adoption</h1>
+        <div class="flex justify-center navbar-center bg-stone-300">
+            <ul class="px-1 text-lg menu menu-horizontal">
                 <li><a href="#">All</a></li>
                 <li><a href="#">Wait Listed</a></li>
                 <li><a href="#">In Process</a></li>
@@ -12,7 +12,7 @@
         </div>
         <div>
             <table class="w-full table-auto">
-                <thead class="bg-stone-300 h-12">
+                <thead class="h-12 bg-stone-300">
                     <tr>
                         <th class="text-left">Adopter</th>
                         <th class="text-left">Applicant</th>
@@ -27,4 +27,4 @@
             </table>
         </div>
     </div>
-</x-layout>
+</x-layout.admin>

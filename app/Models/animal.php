@@ -52,6 +52,15 @@ class Animal extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $fillable = [
+        'name',
+        'sex_id',
+        'type_id',
+        'birthdate',
+        'description',
+        'thumbnail_id'
+    ];
+
     public function type(): HasOne
     {
         return $this->hasOne(AnimalType::class, "id", "type_id");

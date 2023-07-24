@@ -34,4 +34,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Image extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'description'
+    ];
 }

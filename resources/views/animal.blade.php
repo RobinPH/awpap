@@ -1,3 +1,3 @@
-<x-layout>
+<x-layout.user>
     <livewire:animals-viewer />
-</x-layout>
+</x-layout.user>

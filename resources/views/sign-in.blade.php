@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.user>
     <div class="grid grid-cols-1 lg:grid-cols-11">
         <div class="col-span-5 p-8 justify-items-center">
             <div class="p-8 bg-white rounded-xl drop-shadow-xl">
@@ -9,8 +9,14 @@
                     <div class="grid grid-cols-1 gap-6">
                         <input type="email" placeholder="Email" name="email"
                             class="w-full p-3 bg-gray-200 rounded-full">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
                         <input type="password" placeholder="Password" name="password"
                             class="w-full p-3 bg-gray-200 rounded-full">
+                        @error('password')
+                            {{ $message }}
+                        @enderror
                     </div>
 
                     <div class="grid grid-cols-2">
@@ -59,4 +65,4 @@
         </div>
 
     </div>
-</x-layout>
+</x-layout.user>

@@ -24,23 +24,9 @@
 </head>
 
 <body data-theme="corporate" class="font-[Poppins]">
-
-
-    {{-- FOR USERS LAYOUT --}}
-    <livewire:navbar />
-    {{ $slot }}
-    <livewire:footer />
-
-
-    {{-- FOR ADMINS LAYOUT
-    <div class="flex">
-        <livewire:admin-navbar/>
-        <div class="flex flex-col flex-grow">
-            <livewire:admin-topbar/>
-            {{ $slot }}
-        </div>
-    </div> --}}
-
+    <div class="min-h-screen">
+        {{ $slot }}
+    </div>
 
     @livewireScripts
 </body>

@@ -70,6 +70,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasUuids;
 
+    protected $_permissions;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -106,11 +108,30 @@ class User extends Authenticatable
 
     public function address(): HasOne
     {
-        return $this->hasOne(UserAddress::class, "address_id");
+        return $this->hasOne(UserAddress::class, "id", "address_id");
     }
 
     public function profilePicture(): HasOne
     {
         return $this->hasOne(Image::class, 'id', 'profile_picture_id');
+    }
+
+    public function permissions()
+    {
+        if ($this->_permissions == null) {
+            $this->_permissions = $this->belongsToMany(Permission::class, "users_permissions");
+        }
+
+        return $this->_permissions;
+    }
+
+    public function permissionCan(string $permission) {
+        foreach ($this->permissions as $user_permission) {
+            if ($user_permission->name == $permission) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 256);
             $table->string('author', 128);
             $table->dateTime('date_published');
-            $table->string('description', 2048);
+            $table->string('description', 2048)->nullable();
 
             $table->uuid("thumbnail_id")->nullable();
             $table->foreign('thumbnail_id')->references('id')->on('images')->onDelete("cascade");

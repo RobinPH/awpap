@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.user>
     <div class="grid grid-cols-1 lg:grid-cols-11">
         <div class="col-span-5 p-8 justify-items-center">
             <div class="p-8 bg-white rounded-xl drop-shadow-xl">
@@ -80,4 +80,4 @@
         </div>
 
     </div>
-</x-layout>
+</x-layout.user>

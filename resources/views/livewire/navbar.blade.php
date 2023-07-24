@@ -30,26 +30,38 @@
     </div>
     <div class="navbar-end">
         @auth
-            <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            <details class="dropdown dropdown-end">
+                <summary class="flex gap-2 m-1 btn">
+                    <div class="flex flex-col items-end normal-case">
+                        <div>
+                            {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
+                        </div>
+                        <div class="text-xs font-normal">
+                            {{ Auth::user()->email }}
+                        </div>
                     </div>
-                </label>
-                <ul tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <div class="avatar">
+                        <div class="w-8 rounded">
+                            <x-image :image='Auth::user()->profilePicture' defaultSrc="./assets/no-profile.png" />
+                        </div>
+                    </div>
+                </summary>
+                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                    <li><a>Profile</a></li>
+                    <li></li>
                     <li>
-                        <a className="justify-between">
-                            Profile
-                            <span className="badge">New</span>
-                        </a>
+                        <form method="POST" action={{ route('logout') }}>
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
                     </li>
-                    <li><a>Settings</a></li>
-                    <li><a>Logout</a></li>
                 </ul>
-            </div>
+            </details>
         @else
-            <a class="btn" href="/sign-up">Sign Up</a>
+            <div class="flex gap-2">
+                <a class="btn" href="/sign-in">Sign In</a>
+                <a class="btn" href="/sign-up">Sign Up</a>
+            </div>
         @endauth
     </div>
 

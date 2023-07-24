@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout.user>
     <div>
         <div class="grid grid-col-1 md:grid-cols-2">
             <div class="p-8">
@@ -73,4 +73,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+    </x-layout>

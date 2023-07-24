@@ -5,6 +5,8 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use App\Models\UserAddress;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
@@ -18,25 +20,23 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // Validator::make($input, [
-        //     'first_name' => ['required', 'string', 'max:255'],
-        //     'last_name' => ['required', 'string', 'max:255'],
-        //     'birthdate' => ['required', 'date', 'max:255'],
-        //     'address_line' => ['required', 'string', 'max:255'],
-        //     'city' => ['required', 'string', 'max:255'],
-        //     'region' => ['required', 'string', 'max:255'],
-        //     'zip_code' => ['required', 'string', 'max:255'],
-        //     'email' => [
-        //         'required',
-        //         'string',
-        //         'email',
-        //         'max:255',
-        //         Rule::unique(User::class),
-        //     ],
-        //     'password' => $this->passwordRules(),
-        // ])->validate();
-
-        print_r($input);
+        Validator::make($input, [
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'birthdate' => ['required', 'date', 'max:255'],
+            'address_line' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'region' => ['required', 'string', 'max:255'],
+            'zip_code' => ['required', 'string', 'max:255'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique(User::class),
+            ],
+            'password' => $this->passwordRules(),
+        ])->validate();
 
         $address = UserAddress::query()->create([
             'address_line_1' => $input["address_line"],
