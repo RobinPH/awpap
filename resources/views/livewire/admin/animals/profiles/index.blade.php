@@ -10,13 +10,18 @@
             <label for="create_animal_modal" class="btn btn-success">Add</label>
         </div>
     </div>
-    @foreach ($animalTypes as $animalType)
-        <div>
-            <input type="checkbox" wire:model.debounce.150ms="types" className="checkbox checkbox-success"
-                value="{{ $animalType->type }}" />
-            {{ $animalType->type }}
+    <div class="flex flex-row items-center gap-4 p-2 bg-slate-100">
+        <div class="font-bold">
+            Filter by Type:
         </div>
-    @endforeach
+        @foreach ($animalTypes as $animalType)
+            <div>
+                <input type="checkbox" wire:model.debounce.150ms="types" className="checkbox checkbox-success"
+                    value="{{ $animalType->type }}" />
+                {{ $animalType->type }}
+            </div>
+        @endforeach
+    </div>
 
     <input type="checkbox" id="create_animal_modal" class="modal-toggle" />
     <div class="modal">

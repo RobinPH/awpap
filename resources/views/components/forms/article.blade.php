@@ -53,7 +53,7 @@
 
 
     <div class="w-full form-control">
-        <x-forms.input.image-upload id="article-thumbnail-preview-{{ $id }}" name="image"
-            :image="isset($article) ? $article->thumbnail : null" />
+        <x-forms.input.image-upload id="article-thumbnail-preview-{{ $id }}" name="image" :image="isset($article) ? $article->thumbnail : null"
+            preview />
     </div>
 </div>

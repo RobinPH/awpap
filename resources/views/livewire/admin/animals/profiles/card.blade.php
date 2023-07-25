@@ -3,22 +3,37 @@
         <x-image class="object-cover w-40 h-40" :image='$animal->thumbnail' defaultSrc="./assets/dog1.jpg" />
     </div>
     <div class="items-start ml-3">
-        <p class="">
-            <b>
-                <x-highlight-text :keyword="$keyword">
-                    {{ $animal->name }}
-                </x-highlight-text>
-            </b>
-        </p>
 
-        <p class="">{{ $animal->type->type }}</p>
-        <p class="">{{ $animal->age }}</p>
-        <p class="">{{ $animal->sex->sex }}</p>
-        <p class="">
+        <div class="flex gap-1">
+            <div class="font-bold">Name:</div>
             <x-highlight-text :keyword="$keyword">
-                {{ $animal->description }}
+                {{ $animal->name }}
             </x-highlight-text>
-        </p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Type:</div>
+            <p>{{ $animal->type->type }}</p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Age:</div>
+            <p>
+                {{ $animal->age_months_string }}
+            </p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Sex:</div>
+            <p>{{ $animal->sex->sex }}</p>
+        </div>
+
+        {{-- <div class="flex gap-1">
+            <div class="font-bold">Description:</div>
+            <p class="overflow-hidden text-ellipsis">
+                {{ $animal->description }}
+            </p>
+        </div> --}}
     </div>
     <div class="ml-auto mr-5">
         <label for="edit_animal_modal/{{ $animal->id }}" class="btn btn-success">

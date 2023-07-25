@@ -47,8 +47,8 @@ class Index extends Component
 
         $this->animals = Animal::query()
             ->where(function ($query) {
-                $query->where('name', 'like', '%'.$this->search.'%')
-                      ->orWhere('description', 'like', '%'.$this->search.'%');
+                $query->where('name', 'like', '%'.$this->search.'%');
+                    //   ->orWhere('description', 'like', '%'.$this->search.'%');
             })
             ->whereIn('type_id', array_map(fn ($type) => $type["id"], $types->toArray()))
             ->get();

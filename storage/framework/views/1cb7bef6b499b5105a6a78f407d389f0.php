@@ -20,7 +20,11 @@
         <li><a href="<?php echo e(route('articles')); ?>">Articles</a></li>
     <?php endif; ?>
     <li><a>Programs</a></li>
-    <li><a>Adoptions</a></li>
+    <?php if(Auth::user()->permissionCan('adoption:read')): ?>
+        <li>
+            <a href="<?php echo e(route('adoptions')); ?>">Adoptions</a>
+        </li>
+    <?php endif; ?>
     <li><a>Users</a></li>
 
     <li class="mt-auto"><a class="font-bold text-red-500 hover:text-red-700">Logout</a></li>

@@ -1,6 +1,6 @@
 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.user-layout','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('user-layout'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.layout.user','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('layout.user'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
@@ -41,11 +41,11 @@ if (! isset($_instance)) {
                     friends. With state-of-the-art facilities and a focus on preventive medicine, they prioritize
                     individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
                     pet healthcare.'])->html();
-} elseif ($_instance->childHasBeenRendered('worSQ8N')) {
-    $componentId = $_instance->getRenderedChildComponentId('worSQ8N');
-    $componentTag = $_instance->getRenderedChildComponentTagName('worSQ8N');
+} elseif ($_instance->childHasBeenRendered('OGfvTgj')) {
+    $componentId = $_instance->getRenderedChildComponentId('OGfvTgj');
+    $componentTag = $_instance->getRenderedChildComponentTagName('OGfvTgj');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('worSQ8N');
+    $_instance->preserveRenderedChild('OGfvTgj');
 } else {
     $response = \Livewire\Livewire::mount('info-card', ['img' => './assets/store.jpg','title' => 'sample','description' => 'Furfecto Veterinary Services is a leading clinic
                     providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
@@ -55,7 +55,7 @@ if (! isset($_instance)) {
                     individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
                     pet healthcare.']);
     $html = $response->html();
-    $_instance->logRenderedChild('worSQ8N', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('OGfvTgj', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

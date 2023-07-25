@@ -17,32 +17,9 @@
 <?php endif; ?>
     </div>
     <div class="items-start ml-3">
-        <p class="">
-            <b>
-                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.highlight-text','data' => ['keyword' => $keyword]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('highlight-text'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['keyword' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($keyword)]); ?>
-                    <?php echo e($animal->name); ?>
 
-                 <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-            </b>
-        </p>
-
-        <p class=""><?php echo e($animal->type->type); ?></p>
-        <p class=""><?php echo e($animal->age); ?></p>
-        <p class=""><?php echo e($animal->sex->sex); ?></p>
-        <p class="">
+        <div class="flex gap-1">
+            <div class="font-bold">Name:</div>
             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.highlight-text','data' => ['keyword' => $keyword]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('highlight-text'); ?>
@@ -52,7 +29,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['keyword' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($keyword)]); ?>
-                <?php echo e($animal->description); ?>
+                <?php echo e($animal->name); ?>
 
              <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -60,7 +37,27 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-        </p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Type:</div>
+            <p><?php echo e($animal->type->type); ?></p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Age:</div>
+            <p>
+                <?php echo e($animal->age_months_string); ?>
+
+            </p>
+        </div>
+
+        <div class="flex gap-1">
+            <div class="font-bold">Sex:</div>
+            <p><?php echo e($animal->sex->sex); ?></p>
+        </div>
+
+        
     </div>
     <div class="ml-auto mr-5">
         <label for="edit_animal_modal/<?php echo e($animal->id); ?>" class="btn btn-success">

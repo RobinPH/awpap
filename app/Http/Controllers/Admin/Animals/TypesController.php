@@ -24,6 +24,8 @@ class TypesController extends Controller
             'type' => $inputs['type'],
             'description' => $inputs['description'],
         ]);
+
+        return redirect()->back();
     }
 
     public function edit(Request $request) {
@@ -32,7 +34,7 @@ class TypesController extends Controller
 
         Validator::make($inputs, [
             'id' => ['required', 'uuid', "exists:App\Models\AnimalType,id"],
-            'type' => ['required', 'string', 'max:255', Rule::unique('animal_types')->ignore($inputs["id"], "id")],
+            'type' => ['required', 'string', 'max:255', Rule::unique('animal_types', "type")->ignore($inputs["id"], "id")],
             'description' => ['string', 'max:2048', 'nullable'],
         ])->validate();
 
@@ -46,6 +48,8 @@ class TypesController extends Controller
         $type->description = $inputs["description"];
 
         $type->save();
+
+        return redirect()->back();
     }
     public function show() {
         $types = AnimalType::all();

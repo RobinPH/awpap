@@ -7,25 +7,25 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-    <div class="flex">
-        <div>
+    <div class="flex h-full">
+        <div class="h-full">
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('user.profile.navbar', [])->html();
-} elseif ($_instance->childHasBeenRendered('hW4KBlS')) {
-    $componentId = $_instance->getRenderedChildComponentId('hW4KBlS');
-    $componentTag = $_instance->getRenderedChildComponentTagName('hW4KBlS');
+} elseif ($_instance->childHasBeenRendered('W25JYGS')) {
+    $componentId = $_instance->getRenderedChildComponentId('W25JYGS');
+    $componentTag = $_instance->getRenderedChildComponentTagName('W25JYGS');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('hW4KBlS');
+    $_instance->preserveRenderedChild('W25JYGS');
 } else {
     $response = \Livewire\Livewire::mount('user.profile.navbar', []);
     $html = $response->html();
-    $_instance->logRenderedChild('hW4KBlS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('W25JYGS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
         </div>
-        <div class="w-full">
+        <div class="w-full p-8">
             <?php echo e($slot); ?>
 
         </div>

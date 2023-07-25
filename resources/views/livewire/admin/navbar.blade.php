@@ -20,7 +20,11 @@
         <li><a href="{{ route('articles') }}">Articles</a></li>
     @endif
     <li><a>Programs</a></li>
-    <li><a>Adoptions</a></li>
+    @if (Auth::user()->permissionCan('adoption:read'))
+        <li>
+            <a href="{{ route('adoptions') }}">Adoptions</a>
+        </li>
+    @endif
     <li><a>Users</a></li>
 
     <li class="mt-auto"><a class="font-bold text-red-500 hover:text-red-700">Logout</a></li>

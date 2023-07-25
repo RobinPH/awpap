@@ -7,36 +7,36 @@
         <input type="text" name="id" value="<?php echo e($sex->id); ?>" class="hidden" required />
     <?php endif; ?>
 
-    <div class="w-full form-control">
-        <label class="label">
-            <span class="label-text">Sex</span>
-        </label>
-        <input type="text" name="sex" placeholder="Type" class="w-full input input-bordered"
-            <?php if(isset($sex)): ?> value="<?php echo e($sex->sex); ?>" <?php endif; ?> required />
-        <?php $__errorArgs = ['type'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-            <label class="label">
-                <span class="text-red-500 label-text"><?php echo e($message); ?></span>
-            </label>
-        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-    </div>
-
-    <div class="w-full form-control">
-        <label class="label">
-            <span class="label-text">Description</span>
-        </label>
-        <textarea class="textarea textarea-bordere" name="description" placeholder="Description">
-<?php if(isset($sex)): ?>
-<?php echo e($sex->description); ?>
-
+    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['name' => 'sex','label' => 'Sex','value' => ''.e(isset($sex) ? $sex->sex : null).'','required' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('forms.input.text'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-</textarea>
-    </div>
+<?php $component->withAttributes(['name' => 'sex','label' => 'Sex','value' => ''.e(isset($sex) ? $sex->sex : null).'','required' => true]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
+<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
+<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php endif; ?>
+
+    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.textarea','data' => ['name' => 'description','label' => 'Description','value' => ''.e(isset($sex) ? $sex->description : null).'','required' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('forms.input.textarea'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['name' => 'description','label' => 'Description','value' => ''.e(isset($sex) ? $sex->description : null).'','required' => true]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
+<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
+<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php endif; ?>
 </div>
 <?php /**PATH C:\Users\Robin\Desktop\School\3rd year 2nd sem\SoftEng\awpap\resources\views/components/forms/animal/sex.blade.php ENDPATH**/ ?>

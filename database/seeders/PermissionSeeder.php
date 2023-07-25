@@ -33,9 +33,14 @@ class PermissionSeeder extends Seeder
             "article:edit",
             "article:delete",
 
-            "user:read",
-            "user:edit",
-            "user:delete",
+            "adoption:read",
+            "adoption:create",
+            "adoption:edit",
+            "adoption:delete",
+
+            "user:profile:read",
+            "user:profile:edit",
+            "user:profile:delete",
 
             "admin",
 

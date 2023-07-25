@@ -28,18 +28,18 @@ class AdminSeeder extends Seeder
         $barangay = AddressBarangay::query()->inRandomOrder()->where("municipality_id", "=", $municipality->id)->first();
 
         $address = UserAddress::query()->create([
-            'address_line_1' => "",
+            'address_line_1' => "123 Rizal St.",
             'region_id' => $region->id,
             'province_id' => $province->id,
             'municipality_id' => $municipality->id,
             'barangay_id' => $barangay->id,
-            'zip_code' => "1234",
         ]);
 
         $admin = User::create([
             'first_name' => "Admin",
             'last_name' => "Furfecto",
             'address_id' => $address->id,
+            'phone' => '09123456789',
             'birthdate' => date("Y-m-d H:i:s"),
             'email' => "admin@furfecto.com",
             'password' => Hash::make("password"),

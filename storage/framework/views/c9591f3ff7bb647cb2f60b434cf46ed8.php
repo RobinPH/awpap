@@ -1,3 +1,7 @@
+<?php
+    $logout_form_id = uniqid();
+?>
+
 <div class="navbar bg-base-100">
     <div class="navbar-start">
         <div class="dropdown">
@@ -9,11 +13,11 @@
             </label>
             <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li><a href="/">Home</a></li>
-                <li><a href="/animal">Animals</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/program">Programs</a></li>
-                <li><a href="/guideline">Guidelines</a></li>
-                <li><a href="/join-us">Join Us</a></li>
+                <li><a href="<?php echo e(route('animal')); ?>">Animals</a></li>
+                <li><a href="<?php echo e(route('about-us')); ?>">About Us</a></li>
+                <li><a href="<?php echo e(route('program')); ?>">Programs</a></li>
+                <li><a href="<?php echo e(route('guideline')); ?>">Guidelines</a></li>
+                <li><a href="<?php echo e(route('join-us')); ?>">Join Us</a></li>
             </ul>
         </div>
         <a class="text-xl normal-case btn btn-ghost">FURFECTO</a>
@@ -21,11 +25,11 @@
     <div class="hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
             <li><a href="/">Home</a></li>
-            <li><a href="/animal">Animals</a></li>
-            <li><a href="/about-us">About Us</a></li>
-            <li><a href="/program">Programs</a></li>
-            <li><a href="/guideline">Guidelines</a></li>
-            <li><a href="/join-us">Join Us</a></li>
+            <li><a href="<?php echo e(route('animal')); ?>">Animals</a></li>
+            <li><a href="<?php echo e(route('about-us')); ?>">About Us</a></li>
+            <li><a href="<?php echo e(route('program')); ?>">Programs</a></li>
+            <li><a href="<?php echo e(route('guideline')); ?>">Guidelines</a></li>
+            <li><a href="<?php echo e(route('join-us')); ?>">Join Us</a></li>
         </ul>
     </div>
     <div class="navbar-end">
@@ -63,12 +67,12 @@
                     </div>
                 </summary>
                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                    <li><a>Profile</a></li>
+                    <li><a href="<?php echo e(route('profile')); ?>">Profile</a></li>
                     <li></li>
                     <li>
-                        <form method="POST" action=<?php echo e(route('logout')); ?>>
+                        <form method="POST" action=<?php echo e(route('logout')); ?> id="logout-form-<?php echo e($logout_form_id); ?>">
                             <?php echo csrf_field(); ?>
-                            <button type="submit">Logout</button>
+                            <a onclick="document.getElementById('logout-form-<?php echo e($logout_form_id); ?>').submit()">Logout</a>
                         </form>
                     </li>
                 </ul>
@@ -82,4 +86,10 @@
     </div>
 
 </div>
+<?php if(Session::has('message')): ?>
+    <div class="w-full p-2 text-center bg-yellow-200">
+        <?php echo e(Session::get('message')); ?>
+
+    </div>
+<?php endif; ?>
 <?php /**PATH C:\Users\Robin\Desktop\School\3rd year 2nd sem\SoftEng\awpap\resources\views/livewire/navbar.blade.php ENDPATH**/ ?>

@@ -75,7 +75,8 @@ echo $html;
             </div>
             <div class="modal-action">
                 <!-- if there is a button in form, it will close the modal -->
-                <a class="w-full btn btn-primary" href="./adoption-form">Adopt Now</a>
+                <a class="w-full btn btn-primary"
+                    x-bind:href="'<?php echo e(route('adoption-form') . '?animal_id='); ?>' + animal.id">Adopt Now</a>
             </div>
         </form>
         <form method="dialog" class="modal-backdrop">

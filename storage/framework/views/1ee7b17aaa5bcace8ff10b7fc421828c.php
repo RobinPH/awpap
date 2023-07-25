@@ -55,14 +55,14 @@
 
     <div class="w-full form-control">
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.inputs.image-upload','data' => ['id' => 'article-thumbnail-preview-'.e($id).'','name' => 'image','image' => isset($article) ? $article->thumbnail : null]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('forms.inputs.image-upload'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.image-upload','data' => ['id' => 'article-thumbnail-preview-'.e($id).'','name' => 'image','image' => isset($article) ? $article->thumbnail : null,'preview' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('forms.input.image-upload'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'article-thumbnail-preview-'.e($id).'','name' => 'image','image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(isset($article) ? $article->thumbnail : null)]); ?>
+<?php $component->withAttributes(['id' => 'article-thumbnail-preview-'.e($id).'','name' => 'image','image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(isset($article) ? $article->thumbnail : null),'preview' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

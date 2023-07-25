@@ -15,9 +15,9 @@ return new class extends Migration
             $table->uuid("id")->primary();
 
             $table->uuid('animal_id');
-            $table->uuid('image_id');
-
             $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
+
+            $table->uuid('image_id');
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
 
             $table->timestamps();

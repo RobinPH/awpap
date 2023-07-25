@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AdoptionsController;
 use App\Http\Controllers\Admin\Animals\ProfilesController;
 use App\Http\Controllers\Admin\Animals\SexesController;
 use App\Http\Controllers\Admin\Animals\TypesController;
 use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\AdoptionFormController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\VolunteerController;
+use App\Http\Middleware\EnsureCompleteProfile;
 use App\Models\Animal;
 use App\Models\AnimalType;
 use App\Models\Article;
@@ -42,23 +46,23 @@ Route::get('/animal', function () {
     return view('animal', [
         "animals_sample" => $animals_sample,
     ]);
-});
+})->name("animal");
 
 Route::get('/about-us', function () {
     return view('about-us');
-});
+})->name("about-us");
 
 Route::get('/program', function () {
     return view('program');
-});
+})->name("program");
 
 Route::get('/guideline', function () {
     return view('guideline');
-});
+})->name("guideline");
 
 Route::get('/join-us', function () {
     return view('join-us');
-});
+})->name("join-us");
 
 Route::get('/sign-in', function () {
     return view('sign-in');
@@ -72,12 +76,12 @@ Route::get('/program-form', function () {
     return view('program-form');
 });
 
-Route::get('/adoption-form', function () {
-    return view('adoption-form');
+Route::prefix("/adoption-form")->middleware(['auth:sanctum', EnsureCompleteProfile::class])->group(function () {
+    Route::get("/", [AdoptionFormController::class, "show"])->name("adoption-form");
 });
 
-Route::get('/volunteer-form', function () {
-    return view('volunteer-form');
+Route::prefix("/volunteer-form")->middleware(['auth:sanctum'])->group(function () {
+    Route::get("/", [VolunteerController::class, "show"])->name("volunteer-form");
 });
 
 // Route::get('/Admin/pets', function () {
@@ -100,7 +104,12 @@ Route::get('/volunteer-form', function () {
 //     return view('Admin/users');
 // });
 
-Route::get("/profile", [UserProfileController::class, "showPersonalDetails"])->middleware(['auth:sanctum'])->name("profile");
+Route::prefix("/profile")->middleware(['auth:sanctum'])->group(function () {
+    Route::get("/", [UserProfileController::class, "showPersonalDetails"])->name("profile");
+
+    Route::get("/volunteers", [UserProfileController::class, "showVolunteerWorks"])->name("profile:volunteers");
+    Route::get("/adoptions", [UserProfileController::class, "showAdoptions"])->name("profile:adoptions");
+});
 
 Route::prefix("admin")->middleware(['auth:sanctum', 'permissions:admin'])->group(function () {
     Route::get("/dashboard", function () {
@@ -124,9 +133,13 @@ Route::prefix("admin")->middleware(['auth:sanctum', 'permissions:admin'])->group
     Route::get("/articles", [ArticlesController::class, "show"])
         ->middleware(["permissions:article:read"])
         ->name("articles");
+
+    Route::get("/adoptions", [AdoptionsController::class, "show"])
+        ->middleware(["permissions:adoption:read"])
+        ->name("adoptions");
 });
 
-Route::prefix("api")->middleware(['auth:sanctum', 'permissions:admin'])->group(function () {
+Route::prefix("api")->middleware(['auth:sanctum'])->group(function () {
     Route::prefix("/animal")->group(function() {
         Route::prefix("/profile")->group(function () {
             Route::post('/create', [ProfilesController::class, "create"])
@@ -167,6 +180,33 @@ Route::prefix("api")->middleware(['auth:sanctum', 'permissions:admin'])->group(f
         Route::post('/edit', [ArticlesController::class, "edit"])
             ->middleware(["permissions:article:edit"])
             ->name("article:edit");
+    });
+
+    Route::prefix("/adoption")->group(function () {
+        Route::post('/create', [AdoptionFormController::class, "create"])
+            ->middleware(["permissions:adoption:create"])
+            ->name("adoption:create");
+
+        Route::post('/edit', [AdoptionsController::class, "edit"])
+            ->middleware(["permissions:adoption:edit"])
+            ->name("adoption:edit");
+    });
+
+    Route::prefix("/user")->group(function() {
+        Route::prefix("/profile")->group(function () {
+            Route::post('/edit', [UserProfileController::class, "edit"])
+                ->middleware(["permissions:user:profile:edit"])
+                ->name("user:profile:edit");
+        });
+
+        Route::prefix("/volunteer")->group(function () {
+            Route::post('/join', [VolunteerController::class, "join"])
+                ->name("user:volunteer:join");
+
+            Route::post('/delete', [VolunteerController::class, "delete"])
+                ->middleware(["permissions:volunteer:delete"])
+                ->name("volunteer:delete");
+        });
     });
 });
 

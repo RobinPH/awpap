@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -111,9 +112,33 @@ class User extends Authenticatable
         return $this->hasOne(UserAddress::class, "id", "address_id");
     }
 
+
     public function profilePicture(): HasOne
     {
         return $this->hasOne(Image::class, 'id', 'profile_picture_id');
+    }
+
+    public function getFullNameAttribute() {
+        return $this->first_name . " " . $this->last_name;
+    }
+
+    public function getFullAddressAttribute() {
+        $address = $this->address;
+        return $address->address_line_1 . ", " . $address->barangay->name . ", " . $address->municipality->name . ", " . $address->province->name . ", " . $address->region->name;
+    }
+
+    public function getIsProfileCompleteAttribute() {
+
+    }
+
+    public function volunteer_submissions(): HasMany
+    {
+        return $this->hasMany(VolunteerSubmission::class);
+    }
+
+    public function adoptions(): HasMany
+    {
+        return $this->hasMany(AdoptionForm::class);
     }
 
     public function permissions()

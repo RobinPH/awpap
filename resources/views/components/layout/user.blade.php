@@ -3,7 +3,7 @@
         <div class="h-fit">
             <livewire:navbar />
         </div>
-        <div class="h-full">
+        <div class="min-h-screen">
             {{ $slot }}
         </div>
         <div class="h-fit">

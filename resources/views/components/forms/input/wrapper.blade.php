@@ -14,7 +14,7 @@
     </label>
     {{ $slot }}
     <label class="label">
-        @if ($errors->has($name))
+        @if (isset($name) && $errors->has($name))
             <span class="text-red-600 label-text">{{ $errors->first($name) }}</span>
         @elseif (isset($label_bottom_left))
             <span class="label-text">{{ $label_bottom_left }}</span>

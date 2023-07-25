@@ -32,11 +32,13 @@
         :options="$animalTypesAsOptions" required />
 
     <x-forms.input.date name="birthdate" label="Birthdate"
-        value="{{ isset($animal) ? explode(' ', $animal->birthdate)[0] : null }}" required />
+        value="{{ isset($animal) ? explode(' ', $animal->birthdate)[0] : null }}"
+        max="{{ now()->toDateString('Y-m-d') }}" required />
 
     <x-forms.input.textarea name="description" label="Description"
         value="{{ isset($animal) ? $animal->description : null }}" required />
 
 
-    <x-forms.input.image-upload id="animal-thumbnail-preview-{{ $id }}" name="image" :image="isset($animal) ? $animal->thumbnail : null" />
+    <x-forms.input.image-upload id="animal-thumbnail-preview-{{ $id }}" name="image" :image="isset($animal) ? $animal->thumbnail : null"
+        preview />
 </div>

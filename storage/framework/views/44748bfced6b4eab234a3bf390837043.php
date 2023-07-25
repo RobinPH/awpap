@@ -16,7 +16,7 @@
     <?php echo e($slot); ?>
 
     <label class="label">
-        <?php if($errors->has($name)): ?>
+        <?php if(isset($name) && $errors->has($name)): ?>
             <span class="text-red-600 label-text"><?php echo e($errors->first($name)); ?></span>
         <?php elseif(isset($label_bottom_left)): ?>
             <span class="label-text"><?php echo e($label_bottom_left); ?></span>

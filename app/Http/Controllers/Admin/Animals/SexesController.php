@@ -24,6 +24,8 @@ class SexesController extends Controller
             'sex' => $inputs['sex'],
             'description' => $inputs['description'],
         ]);
+
+        return redirect()->back();
     }
 
     public function edit(Request $request) {
@@ -32,20 +34,18 @@ class SexesController extends Controller
 
         Validator::make($inputs, [
             'id' => ['required', 'uuid', "exists:App\Models\AnimalSex,id"],
-            'sex' => ['required', 'string', 'max:255', Rule::unique('animal_sexes')->ignore($inputs["id"], "id")],
+            'sex' => ['required', 'string', 'max:255', Rule::unique('animal_sexes', "sex")->ignore($inputs["id"], "id")],
             'description' => ['string', 'max:2048', 'nullable'],
         ])->validate();
 
         $sex = AnimalSex::query()->where("id", "=", $inputs["id"])->firstOrFail();
 
-        if (!$sex) {
-            return;
-        }
-
         $sex->sex = $inputs["sex"];
         $sex->description = $inputs["description"];
 
         $sex->save();
+
+        return redirect()->back();
     }
     public function show() {
         $sexes = AnimalSex::all();

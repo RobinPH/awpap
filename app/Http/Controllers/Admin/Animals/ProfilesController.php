@@ -48,7 +48,7 @@ class ProfilesController extends Controller
             'thumbnail_id' => $image && $thumbnail ? $thumbnail->id : null,
         ]);
 
-
+        return redirect()->back();
     }
 
     public function edit(Request $request) {
@@ -96,6 +96,8 @@ class ProfilesController extends Controller
         }
 
         $animal->save();
+
+        return redirect()->back();
     }
     public function show() {
         $animals = Animal::all();

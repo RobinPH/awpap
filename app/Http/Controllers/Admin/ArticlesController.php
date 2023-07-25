@@ -49,7 +49,7 @@ class ArticlesController extends Controller
             'thumbnail_id' => $image && $thumbnail ? $thumbnail->id : null,
         ]);
 
-
+        return redirect()->back();
     }
 
     public function edit(Request $request) {
@@ -97,6 +97,8 @@ class ArticlesController extends Controller
         }
 
         $article->save();
+
+        return redirect()->back();
     }
     public function show() {
         $articles = Article::all();

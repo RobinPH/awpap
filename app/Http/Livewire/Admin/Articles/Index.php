@@ -22,6 +22,14 @@ class Index extends Component
 
     public function render()
     {
+
+        $this->articles = Article::query()
+            ->where(function ($query) {
+                $query->where('title', 'like', '%'.$this->search.'%')
+                      ->orWhere('author', 'like', '%'.$this->search.'%');
+            })
+            ->get();
+
         return view('livewire.admin.articles.index');
     }
 }

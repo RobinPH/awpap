@@ -1,3 +1,7 @@
+@php
+    $logout_form_id = uniqid();
+@endphp
+
 <div class="navbar bg-base-100">
     <div class="navbar-start">
         <div class="dropdown">
@@ -9,11 +13,11 @@
             </label>
             <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li><a href="/">Home</a></li>
-                <li><a href="/animal">Animals</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/program">Programs</a></li>
-                <li><a href="/guideline">Guidelines</a></li>
-                <li><a href="/join-us">Join Us</a></li>
+                <li><a href="{{ route('animal') }}">Animals</a></li>
+                <li><a href="{{ route('about-us') }}">About Us</a></li>
+                <li><a href="{{ route('program') }}">Programs</a></li>
+                <li><a href="{{ route('guideline') }}">Guidelines</a></li>
+                <li><a href="{{ route('join-us') }}">Join Us</a></li>
             </ul>
         </div>
         <a class="text-xl normal-case btn btn-ghost">FURFECTO</a>
@@ -21,11 +25,11 @@
     <div class="hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
             <li><a href="/">Home</a></li>
-            <li><a href="/animal">Animals</a></li>
-            <li><a href="/about-us">About Us</a></li>
-            <li><a href="/program">Programs</a></li>
-            <li><a href="/guideline">Guidelines</a></li>
-            <li><a href="/join-us">Join Us</a></li>
+            <li><a href="{{ route('animal') }}">Animals</a></li>
+            <li><a href="{{ route('about-us') }}">About Us</a></li>
+            <li><a href="{{ route('program') }}">Programs</a></li>
+            <li><a href="{{ route('guideline') }}">Guidelines</a></li>
+            <li><a href="{{ route('join-us') }}">Join Us</a></li>
         </ul>
     </div>
     <div class="navbar-end">
@@ -47,12 +51,12 @@
                     </div>
                 </summary>
                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                    <li><a>Profile</a></li>
+                    <li><a href="{{ route('profile') }}">Profile</a></li>
                     <li></li>
                     <li>
-                        <form method="POST" action={{ route('logout') }}>
+                        <form method="POST" action={{ route('logout') }} id="logout-form-{{ $logout_form_id }}">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <a onclick="document.getElementById('logout-form-{{ $logout_form_id }}').submit()">Logout</a>
                         </form>
                     </li>
                 </ul>
@@ -66,3 +70,8 @@
     </div>
 
 </div>
+@if (Session::has('message'))
+    <div class="w-full p-2 text-center bg-yellow-200">
+        {{ Session::get('message') }}
+    </div>
+@endif

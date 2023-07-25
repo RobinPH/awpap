@@ -10,14 +10,19 @@
             <label for="create_animal_modal" class="btn btn-success">Add</label>
         </div>
     </div>
-    <?php $__currentLoopData = $animalTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $animalType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div>
-            <input type="checkbox" wire:model.debounce.150ms="types" className="checkbox checkbox-success"
-                value="<?php echo e($animalType->type); ?>" />
-            <?php echo e($animalType->type); ?>
-
+    <div class="flex flex-row items-center gap-4 p-2 bg-slate-100">
+        <div class="font-bold">
+            Filter by Type:
         </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $animalTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $animalType): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div>
+                <input type="checkbox" wire:model.debounce.150ms="types" className="checkbox checkbox-success"
+                    value="<?php echo e($animalType->type); ?>" />
+                <?php echo e($animalType->type); ?>
+
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </div>
 
     <input type="checkbox" id="create_animal_modal" class="modal-toggle" />
     <div class="modal">

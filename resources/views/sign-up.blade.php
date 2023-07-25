@@ -13,33 +13,9 @@
                             class="w-full p-3 bg-gray-200 rounded-full" />
                         <input type="email" placeholder="Email" name="email"
                             class="w-full p-3 bg-gray-200 rounded-full" />
-                        <input type="text" placeholder="Address" name="address_line"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
-                        <input type="text" placeholder="City" name="city"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
-                        <input type="text" placeholder="Region" name="region"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
-                        <input type="text" placeholder="Zip Code" name="zip_code"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
-                        <input type="text" placeholder="Phone Number" name="phone"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
-                        <div>
-                            <p class="py-2 pl-3 text-sm">Birth Date</p>
-                            <input type="date" name="birthdate" class="w-full p-3 bg-gray-200 rounded-full"
-                                max="<?= date('Y-m-d') ?>" />
-                        </div>
-                        <div>
-                            <label for="status" class="py-2 pl-3 text-sm">Status</label>
-                            <div class="px-5">
-                                <input type="radio" id="html" name="status" value="single" />
-                                <label for="single">Single</label><br />
-                                <input type="radio" id="html" name="status" value="married" />
-                                <label for="married">Married</label><br />
-                                <input type="radio" id="html" name="status" value="others" />
-                                <label for="others">Others</label><br />
-                            </div>
-                        </div>
                         <input type="password" placeholder="Password" name="password"
+                            class="w-full p-3 bg-gray-200 rounded-full" />
+                        <input type="password" placeholder="Retype Password" name="password_confirmation"
                             class="w-full p-3 bg-gray-200 rounded-full" />
                     </div>
 
