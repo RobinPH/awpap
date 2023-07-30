@@ -20,6 +20,10 @@ class ArticleSeeder extends Seeder
         $paths = explode("/", $inputs["thumbnail"]);
         $localExternal = $storageExternalImagePath . "/" . end($paths) . ".png";
 
+        if (!is_dir($storageImagePath)) {
+            mkdir($storageImagePath, 0755, true);
+        }
+
         try {
             if (!file_exists($localExternal)) {
                 copy($inputs["thumbnail"] . ".png", $localExternal);
