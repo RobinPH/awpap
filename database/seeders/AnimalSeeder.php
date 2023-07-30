@@ -207,11 +207,9 @@ class AnimalSeeder extends Seeder
         $paths = explode("/", $inputs["ProfilePicture"]);
         $localExternal = $storageExternalImagePath . "/" . end($paths) . ".png";
 
-        $storageImagePath = public_path() . "/storage/images/";
-
-            if (!is_dir($storageImagePath)) {
-                mkdir($storageImagePath, 0755, true);
-            }
+        if (!is_dir($storageImagePath)) {
+            mkdir($storageImagePath, 0755, true);
+        }
 
         try {
             if (!file_exists($localExternal)) {
