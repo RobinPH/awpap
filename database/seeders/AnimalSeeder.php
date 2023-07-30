@@ -6,6 +6,7 @@ use App\Models\Animal;
 use App\Models\AnimalSex;
 use App\Models\AnimalType;
 use App\Models\Image;
+use Exception;
 use Illuminate\Database\Seeder;
 
 class AnimalSeeder extends Seeder
@@ -203,7 +204,9 @@ class AnimalSeeder extends Seeder
 
         $storageImagePath = public_path() . "/storage/images/";
 
-        copy($inputs["ProfilePicture"] . ".png", $storageImagePath . $thumbnail->id);
+        try {
+            copy($inputs["ProfilePicture"] . ".png", $storageImagePath . $thumbnail->id);
+        } catch (Exception $e) {}
 
         Animal::query()->create([
             "name" => $inputs["Name"],

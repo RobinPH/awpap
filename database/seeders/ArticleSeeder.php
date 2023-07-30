@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Article;
 use App\Models\Image;
+use Exception;
 use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
@@ -16,7 +17,9 @@ class ArticleSeeder extends Seeder
 
         $storageImagePath = public_path() . "/storage/images/";
 
-        copy($inputs["thumbnail"] . ".png", $storageImagePath . $thumbnail->id);
+        try {
+            copy($inputs["thumbnail"] . ".png", $storageImagePath . $thumbnail->id);
+        } catch (Exception $e) {}
 
         Article::query()->create([
             "title" => $inputs["title"],
