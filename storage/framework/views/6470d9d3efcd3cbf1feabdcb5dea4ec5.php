@@ -24,15 +24,15 @@
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('animal-card', ['animal' => $animal])->html();
-} elseif ($_instance->childHasBeenRendered('TMNs1rF')) {
-    $componentId = $_instance->getRenderedChildComponentId('TMNs1rF');
-    $componentTag = $_instance->getRenderedChildComponentTagName('TMNs1rF');
+} elseif ($_instance->childHasBeenRendered('PzfojuW')) {
+    $componentId = $_instance->getRenderedChildComponentId('PzfojuW');
+    $componentTag = $_instance->getRenderedChildComponentTagName('PzfojuW');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('TMNs1rF');
+    $_instance->preserveRenderedChild('PzfojuW');
 } else {
     $response = \Livewire\Livewire::mount('animal-card', ['animal' => $animal]);
     $html = $response->html();
-    $_instance->logRenderedChild('TMNs1rF', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('PzfojuW', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -47,15 +47,15 @@ echo $html;
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('animal-card', ['animal' => $animal])->html();
-} elseif ($_instance->childHasBeenRendered('Nu2BcZv')) {
-    $componentId = $_instance->getRenderedChildComponentId('Nu2BcZv');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Nu2BcZv');
+} elseif ($_instance->childHasBeenRendered('0DaZ8h9')) {
+    $componentId = $_instance->getRenderedChildComponentId('0DaZ8h9');
+    $componentTag = $_instance->getRenderedChildComponentTagName('0DaZ8h9');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Nu2BcZv');
+    $_instance->preserveRenderedChild('0DaZ8h9');
 } else {
     $response = \Livewire\Livewire::mount('animal-card', ['animal' => $animal]);
     $html = $response->html();
-    $_instance->logRenderedChild('Nu2BcZv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('0DaZ8h9', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -67,36 +67,23 @@ echo $html;
         <h1 class="pt-5 text-3xl font-bold text-center text-blue-500">Adoption Stories</h1>
         <p class="p-1 text-center text-gray-500">Glimpse the experience of the adoption of others</p>
         <div class="flex flex-wrap items-center justify-center gap-5 p-8 md:flex-nowrap bg-blue-30">
-            <?php
+            <?php $__currentLoopData = $stories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $story): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('story-card', ['img' => './assets/user.png','title' => 'Fateful Encounter','name' => 'Emily Santos','story' => 'Mesmerized by the playful chorus of barks and meows, my eyes were drawn to a captivating tabby kitten, adorned with emerald-green eyes. Cradling the tiny furball, whom I named Oliver, an undeniable connection formed. In that moment, I knew I had found my feline companion, and without hesitation, I embarked on the adoption process. Little did I know that this fateful encounter would bring immeasurable love, lessons in compassion, and an unwavering bond that would forever shape my life.'])->html();
-} elseif ($_instance->childHasBeenRendered('iO5DJpY')) {
-    $componentId = $_instance->getRenderedChildComponentId('iO5DJpY');
-    $componentTag = $_instance->getRenderedChildComponentTagName('iO5DJpY');
+    $html = \Livewire\Livewire::mount('story-card', ['story' => $story])->html();
+} elseif ($_instance->childHasBeenRendered('GHeG3Tv')) {
+    $componentId = $_instance->getRenderedChildComponentId('GHeG3Tv');
+    $componentTag = $_instance->getRenderedChildComponentTagName('GHeG3Tv');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('iO5DJpY');
+    $_instance->preserveRenderedChild('GHeG3Tv');
 } else {
-    $response = \Livewire\Livewire::mount('story-card', ['img' => './assets/user.png','title' => 'Fateful Encounter','name' => 'Emily Santos','story' => 'Mesmerized by the playful chorus of barks and meows, my eyes were drawn to a captivating tabby kitten, adorned with emerald-green eyes. Cradling the tiny furball, whom I named Oliver, an undeniable connection formed. In that moment, I knew I had found my feline companion, and without hesitation, I embarked on the adoption process. Little did I know that this fateful encounter would bring immeasurable love, lessons in compassion, and an unwavering bond that would forever shape my life.']);
+    $response = \Livewire\Livewire::mount('story-card', ['story' => $story]);
     $html = $response->html();
-    $_instance->logRenderedChild('iO5DJpY', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('GHeG3Tv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
-            <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('story-card', ['img' => './assets/user.png','title' => 'Fateful Encounter','name' => 'Emily Santos','story' => 'Mesmerized by the playful chorus of barks and meows, my eyes were drawn to a captivating tabby kitten, adorned with emerald-green eyes. Cradling the tiny furball, whom I named Oliver, an undeniable connection formed. In that moment, I knew I had found my feline companion, and without hesitation, I embarked on the adoption process. Little did I know that this fateful encounter would bring immeasurable love, lessons in compassion, and an unwavering bond that would forever shape my life.'])->html();
-} elseif ($_instance->childHasBeenRendered('jfMZ47r')) {
-    $componentId = $_instance->getRenderedChildComponentId('jfMZ47r');
-    $componentTag = $_instance->getRenderedChildComponentTagName('jfMZ47r');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('jfMZ47r');
-} else {
-    $response = \Livewire\Livewire::mount('story-card', ['img' => './assets/user.png','title' => 'Fateful Encounter','name' => 'Emily Santos','story' => 'Mesmerized by the playful chorus of barks and meows, my eyes were drawn to a captivating tabby kitten, adorned with emerald-green eyes. Cradling the tiny furball, whom I named Oliver, an undeniable connection formed. In that moment, I knew I had found my feline companion, and without hesitation, I embarked on the adoption process. Little did I know that this fateful encounter would bring immeasurable love, lessons in compassion, and an unwavering bond that would forever shape my life.']);
-    $html = $response->html();
-    $_instance->logRenderedChild('jfMZ47r', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
-?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <div class="flex items-center justify-center">
             <button type="button"
@@ -107,21 +94,21 @@ echo $html;
     </div>
 
     <div class="items-center justify-center p-2">
-        <h1 class="p-8 text-3xl font-bold text-center">Aritcles</h1>
+        <h1 class="p-8 text-3xl font-bold text-center">Articles</h1>
         <div class="flex flex-wrap justify-center gap-6 md:flex-nowrap">
             <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $article): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('article-card', ['article' => $article])->html();
-} elseif ($_instance->childHasBeenRendered('iEboINz')) {
-    $componentId = $_instance->getRenderedChildComponentId('iEboINz');
-    $componentTag = $_instance->getRenderedChildComponentTagName('iEboINz');
+} elseif ($_instance->childHasBeenRendered('L4L63TD')) {
+    $componentId = $_instance->getRenderedChildComponentId('L4L63TD');
+    $componentTag = $_instance->getRenderedChildComponentTagName('L4L63TD');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('iEboINz');
+    $_instance->preserveRenderedChild('L4L63TD');
 } else {
     $response = \Livewire\Livewire::mount('article-card', ['article' => $article]);
     $html = $response->html();
-    $_instance->logRenderedChild('iEboINz', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('L4L63TD', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?></livewire:article-card>

@@ -79,11 +79,11 @@
         <h1 class="pt-10 pb-6 text-3xl font-bold text-center">Fill Up Adoption Form</h1>
         <div class="flex justify-center p-4">
             <div class="p-16 bg-white border border-gray-200 border-solid md:w-9/12 rounded-xl drop-shadow-xl">
-                <div>
+                <div class="space-y-4">
                     <h2 class="text-2xl font-bold border-b-2 border-solid border-slate-950">Adopting Animal</h2>
                     <div class="flex items-center pb-4 gap-8 px-2">
                         <x-image :image="$animal->thumbnail" id="{{ $animal->id }}"
-                            class="adopting-animal-image-preview mask mask-square h-64" />
+                            class="adopting-animal-image-preview object-cover w-64 h-64" />
                         <div>
                             <p><span class="font-bold">Name: </span>{{ $animal->name }}</p>
                             <p><span class="font-bold">Age: </span>{{ $animal->age_months_string }}</p>
@@ -126,8 +126,8 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-y-2 lg:gap-x-12">
-                        <x-forms.input.text label="Occupation" value="{{ $user->occupation }}" disabled />
-                        <x-forms.input.text label="Social Media" value="{{ $user->social_media }}" disabled />
+                        <x-forms.input.text label="Occupation" value="{{ $user->occupation }}" disabled required />
+                        <x-forms.input.text label="Social Media" value="{{ $user->social_media }}" disabled required />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-y-2 lg:gap-x-12">
@@ -207,26 +207,6 @@
                             label="We value your privacy. Your photos will not be used for
                         purposes other than this adoption application"
                             required multiple />
-
-                        {{-- <p class="pt-4 lg:pt-8 lg:pb-2">We value your privacy. Your photos will not be used for
-                            purposes other than this adoption application<b class="text-red-500">*</b></p>
-                        <div class="flex items-center justify-center w-full">
-                            <label for="dropzone-file"
-                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:bg-gray-100 ">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-700" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
-                                        </path>
-                                    </svg>
-                                    <p class="mb-2 text-sm text-gray-700"><span class="font-semibold">Click to
-                                            upload</span> or drag and drop</p>
-                                    <p class="text-xs text-gray-600 ">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
-                            </label>
-                        </div> --}}
                     </div>
 
                     <div class="flex items-center justify-center pt-4">

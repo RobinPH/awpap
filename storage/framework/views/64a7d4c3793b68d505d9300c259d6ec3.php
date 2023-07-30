@@ -19,11 +19,11 @@
                     <?php echo e(($required ?? false) && !isset($multiple) ? 'required' : ''); ?>
 
                     <?php if(isset($name)): ?> name="<?php echo e($name); ?>" <?php endif; ?> value="<?php echo e($option['value']); ?>"
-                    class=""<?php echo e(isset($multiple) ? 'checkbox checkbox-xs' : 'radio radio-xs'); ?>
-
-                    <?php if(isset($selected)): ?> <?php if($selected == $option['value']): ?>
+                    class="<?php echo e(isset($multiple) ? 'checkbox checkbox-xs' : 'radio radio-xs'); ?>"
+                    <?php if(isset($selected)): ?> <?php if(is_array($selected) ? in_array($option['value'], $selected) : $selected == $option['value']): ?>
                             checked <?php endif; ?>
-                <?php elseif($loop->first && isset($preselect)): ?> checked <?php endif; ?> />
+                <?php elseif($loop->first && isset($preselect)): ?> checked <?php endif; ?>
+                <?php echo e($disabled ?? false ? 'disabled' : ''); ?> />
                 <label>
                     <p><?php echo e(isset($option['label']) ? $option['label'] : $option['value']); ?></p>
                     <?php if(isset($option['description'])): ?>

@@ -85,6 +85,7 @@ class User extends Authenticatable
         'email',
         'address_id',
         'password',
+        'google_id',
     ];
 
     /**
@@ -131,6 +132,18 @@ class User extends Authenticatable
 
     }
 
+    public function getIsAdminAttribute() {
+        $user_permissions = UsersPermission::query()->where("user_id", "=", $this->id)->get();
+
+        foreach ($user_permissions as $user_permission) {
+            if ($user_permission->permission->name == "admin") {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function volunteer_submissions(): HasMany
     {
         return $this->hasMany(VolunteerSubmission::class);
@@ -139,6 +152,11 @@ class User extends Authenticatable
     public function adoptions(): HasMany
     {
         return $this->hasMany(AdoptionForm::class);
+    }
+
+    public function programs(): HasMany
+    {
+        return $this->hasMany(ProgramForm::class);
     }
 
     public function permissions()

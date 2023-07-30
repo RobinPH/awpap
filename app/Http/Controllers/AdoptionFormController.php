@@ -51,7 +51,7 @@ class AdoptionFormController extends Controller
             "average_workday" => ["required", "string", "max:1024"],
             "steps_to_introduce" => ["required", "string", "max:1024"],
             "everyone_supports" => ["required", "string", "max:1024"],
-            "image" => ["required", "array", 'min:1'],
+            "image" => ["required", "array", 'min:0'],
             'image.*' => 'image|mimes:jpeg,png,jpg|max:2048'
         ])->validate();
 

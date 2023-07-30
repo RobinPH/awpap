@@ -1,4 +1,4 @@
-<div class="flex flex-row items-center w-auto rounded-sm shadow-md h-44 bg-stone-300">
+<div class="flex flex-row items-center w-auto p-4 rounded-sm shadow-md bg-stone-300">
     <div class="w-40 h-40 ml-2 min-w-fit">
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.image','data' => ['class' => 'object-cover w-40 h-40','image' => $animal->thumbnail,'defaultSrc' => './assets/dog1.jpg']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>

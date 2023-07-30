@@ -12,16 +12,20 @@
         </div>
     </div>
 
-    <div>
-        @for ($i = 0; $i < 4; $i++)
-            <livewire:info-card img="./assets/store.jpg" title="sample"
-                description="Furfecto Veterinary Services is a leading clinic
-                    providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
-                    personalized attention and advanced medical expertise. From routine check-ups to specialized
-                    treatments, Furfecto Veterinary Services ensures the health and well-being of your furry
-                    friends. With state-of-the-art facilities and a focus on preventive medicine, they prioritize
-                    individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
-                    pet healthcare." />
-        @endfor
+    <div class="px-4 md:px-8 lg:px-16">
+        @foreach ($programs as $program)
+            <div>
+                <div class="p-8 lg:pl-14 lg:pb-14 lg:pt-14 lg:pr-4">
+                    <div class="flex items-center justify-items-center">
+                        <x-image :image="$program->thumbnail" id="{{ $program->id }}"
+                            class="object-cover w-32 h-32 md:h-32 md:w-64 program-image-preview" />
+                        <div class="flex flex-col justify-center col-span-4 p-10 text-justify">
+                            <h1 class="pb-8 text-3xl font-bold">{{ $program->name }}</h1>
+                            <p class="text-lg">{{ $program->description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </div>
 </x-layout.user>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->uuid("id")->primary();
             $table->string("title")->nullable();
+            $table->string("url")->nullable();
             $table->string("description")->nullable();
             $table->dateTime("deleted_at")->nullable();
             $table->timestamps();

@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdoptionForm extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, SoftDeletes;
 
     protected $fillable = [
         "user_id",
@@ -49,5 +50,9 @@ class AdoptionForm extends Model
     public function images(): BelongsToMany
     {
         return $this->belongsToMany(Image::class, 'adoption_form_images', 'adoption_form_id', 'image_id');
+    }
+
+    public function getStoryAttribute() {
+        return AdoptionStory::where("adoption_id", "=", $this->id)->first();
     }
 }

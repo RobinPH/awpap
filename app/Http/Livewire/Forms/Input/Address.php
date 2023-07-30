@@ -31,15 +31,15 @@ class Address extends Component
     public function mount(UserAddress $address) {
         $this->address = $address;
 
-        $this->region_id = $this->address->region_id;
-        $this->province_id = $this->address->province_id;
-        $this->municipality_id = $this->address->municipality_id;
-        $this->barangay_id = $this->address->barangay_id;
+        $this->region_id = $this->address ? $this->address->region_id : null;
+        $this->province_id = $this->address ? $this->address->province_id : null;
+        $this->municipality_id = $this->address ? $this->address->municipality_id : null;
+        $this->barangay_id = $this->address ? $this->address->barangay_id : null;
 
-        $this->setRegion($this->address->region_id);
-        $this->setProvince($this->address->province_id);
-        $this->setMunicipality($this->address->municipality_id);
-        $this->setBarangay($this->address->barangay_id);
+        $this->setRegion($this->region_id);
+        $this->setProvince($this->province_id);
+        $this->setMunicipality($this->municipality_id);
+        $this->setBarangay($this->barangay_id);
     }
 
     public function setRegion(string|null $region_id) {

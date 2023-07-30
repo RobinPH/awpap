@@ -10,10 +10,11 @@
                 <input type="{{ isset($multiple) ? 'checkbox' : 'radio' }}"
                     {{ ($required ?? false) && !isset($multiple) ? 'required' : '' }}
                     @if (isset($name)) name="{{ $name }}" @endif value="{{ $option['value'] }}"
-                    class=""{{ isset($multiple) ? 'checkbox checkbox-xs' : 'radio radio-xs' }}
-                    @if (isset($selected)) @if ($selected == $option['value'])
+                    class="{{ isset($multiple) ? 'checkbox checkbox-xs' : 'radio radio-xs' }}"
+                    @if (isset($selected)) @if (is_array($selected) ? in_array($option['value'], $selected) : $selected == $option['value'])
                             checked @endif
-                @elseif ($loop->first && isset($preselect)) checked @endif />
+                @elseif ($loop->first && isset($preselect)) checked @endif
+                {{ $disabled ?? false ? 'disabled' : '' }} />
                 <label>
                     <p>{{ isset($option['label']) ? $option['label'] : $option['value'] }}</p>
                     @if (isset($option['description']))

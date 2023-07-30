@@ -1,5 +1,6 @@
 <?php
     $user = Auth::user();
+    
 ?>
 
 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
@@ -11,11 +12,20 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-    <h1 class="text-xl font-bold">Your Volunteer Works</h1>
-    <div class="flex flex-col w-full">
-        <?php $__currentLoopData = $user->volunteer_submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $volunteer_submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div><?php echo e($loop->iteration); ?>. <?php echo e($volunteer_submission->work->name); ?></div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <div class="h-screen">
+        <h1 class="text-xl font-bold">Your Volunteer Works</h1>
+        <div class="flex flex-col w-full">
+            <?php $__currentLoopData = $user->volunteer_submissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $volunteer_submission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="flex flex-row items-center w-auto p-4 rounded-sm shadow-md bg-stone-300">
+                    <div class="items-start ml-3">
+                        <div class="flex gap-1">
+                            <div class="font-bold">Volunteer Type:</div>
+                            <?php echo e($volunteer_submission->work->name); ?>
+
+                        </div>
+                    </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
     </div>
 
  <?php echo $__env->renderComponent(); ?>

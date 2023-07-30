@@ -16,6 +16,8 @@
         ],
     ];
     
+    // dd($user);
+    
 @endphp
 
 <x-layout.user.profile>
@@ -37,13 +39,13 @@
             <x-forms.input.date name="birthdate" label="Birthdate" value="{{ $user->birthdate }}"
                 max="{{ now()->toDateString('Y-m-d') }}" required />
 
-            <x-forms.input.text type="text" name="phone" label="Phone" value="{{ $user->phone }}" />
+            <x-forms.input.text type="text" name="phone" label="Phone" value="{{ $user->phone }}" required />
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-y-2 lg:gap-x-12">
-                <x-forms.input.text type="text" name="occupation" label="Occupation"
-                    value="{{ $user->occupation }}" />
+                <x-forms.input.text type="text" name="occupation" label="Occupation" value="{{ $user->occupation }}"
+                    required />
                 <x-forms.input.text type="text" name="social_media" label="Social Media Link"
-                    value="{{ $user->social_media }}" />
+                    value="{{ $user->social_media }}" required />
             </div>
 
 

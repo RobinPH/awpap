@@ -26,7 +26,7 @@
 
     <div id="div1" class="items-center justify-center max-w-6xl mx-auto">
         <h1 class="p-8 text-3xl font-bold text-center" x-text="animalType"></h1>
-        <div class="grid grid-cols-1 gap-2 p-3 sm:grid-cols-4 justify-items-center">
+        <div class="grid grid-cols-1 gap-2 p-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
 
             @foreach ($animals as $animal)
                 <livewire:adopt-card :animal="$animal" :wire:key="$animal->id" />

@@ -25,6 +25,8 @@ class VolunteerController extends Controller
                 "volunteer_work_id" => $inputs["volunteer_work_id"],
             ]);
         }
+
+        return redirect()->route("profile:volunteers");
     }
 
     public function show() {

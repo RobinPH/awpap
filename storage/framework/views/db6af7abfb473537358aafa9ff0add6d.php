@@ -6,9 +6,10 @@
     <ul class="w-56 h-full menu bg-base-200 rounded-box">
         <li class="menu-title">Profile</li>
         <li><a href="<?php echo e(route('profile')); ?>">Personal Details</a></li>
-        <li><a>Security</a></li>
+        
         <li><a href="<?php echo e(route('profile:adoptions')); ?>">Adoptions</a></li>
         <li><a href="<?php echo e(route('profile:volunteers')); ?>">Volunteer Works</a></li>
+        <li><a href="<?php echo e(route('profile:programs')); ?>">Appointments</a></li>
         <li class="mt-auto">
             <form method="POST" action=<?php echo e(route('logout')); ?> id="logout-form-<?php echo e($logout_form_id); ?>">
                 <?php echo csrf_field(); ?>

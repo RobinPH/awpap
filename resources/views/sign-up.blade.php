@@ -7,10 +7,10 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="grid grid-cols-1 gap-6">
-                        <input type="text" placeholder="First Name" name="first_name"
+                        {{-- <input type="text" placeholder="First Name" name="first_name"
                             class="w-full p-3 bg-gray-200 rounded-full" />
                         <input type="text" placeholder="Last Name" name="last_name"
-                            class="w-full p-3 bg-gray-200 rounded-full" />
+                            class="w-full p-3 bg-gray-200 rounded-full" /> --}}
                         <input type="email" placeholder="Email" name="email"
                             class="w-full p-3 bg-gray-200 rounded-full" />
                         <input type="password" placeholder="Password" name="password"
@@ -35,17 +35,24 @@
 
                 <div>
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Facebook
-                        </button>
+                        <a class="w-full font-bold border border-slate-950 hover:bg-slate-800 hover:text-white rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:google') }}">
+                            Continue with Google
+                        </a>
                     </div>
 
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold border border-slate-950 hover:bg-slate-800 hover:text-white rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Google
-                        </button>
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:facebook') }}">
+                            Continue with Facebook
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center pt-4">
+                        <a class="w-full font-bold border border-slate-950 hover:bg-slate-800 hover:text-white rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:twitter') }}">
+                            Continue with Twitter
+                        </a>
                     </div>
                 </div>
             </div>

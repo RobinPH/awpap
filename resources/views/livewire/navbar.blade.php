@@ -11,20 +11,28 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                 </svg>
             </label>
-            <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                <li><a href="/">Home</a></li>
+            <ul tabindex="0" class="z-20 p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('animal') }}">Animals</a></li>
                 <li><a href="{{ route('about-us') }}">About Us</a></li>
                 <li><a href="{{ route('program') }}">Programs</a></li>
                 <li><a href="{{ route('guideline') }}">Guidelines</a></li>
                 <li><a href="{{ route('join-us') }}">Join Us</a></li>
+                @auth
+                @else
+                    <span class="md:hidden">
+                        <li></li>
+                        <li><a href="{{ route('sign-in') }}">Sign In</a></li>
+                        <li><a href="{{ route('sign-up') }}">Sign Up</a></li>
+                    </span>
+                @endauth
             </ul>
         </div>
-        <a class="text-xl normal-case btn btn-ghost">FURFECTO</a>
+        <a class="hidden text-xl text-center normal-case sm:block btn btn-ghost" href="{{ route('home') }}">FURFECTO</a>
     </div>
-    <div class="hidden navbar-center lg:flex">
+    <div class="z-10 hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
-            <li><a href="/">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('animal') }}">Animals</a></li>
             <li><a href="{{ route('about-us') }}">About Us</a></li>
             <li><a href="{{ route('program') }}">Programs</a></li>
@@ -36,7 +44,7 @@
         @auth
             <details class="dropdown dropdown-end">
                 <summary class="flex gap-2 m-1 btn">
-                    <div class="flex flex-col items-end normal-case">
+                    <div class="flex-col items-end hidden normal-case sm:flex">
                         <div>
                             {{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}
                         </div>
@@ -52,6 +60,12 @@
                 </summary>
                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                     <li><a href="{{ route('profile') }}">Profile</a></li>
+                    @if (Auth::user()->permissionCan('admin'))
+                        <li></li>
+                        <li>
+                            <a href="{{ route('admin:analytics:web-traffic') }}">Admin Page</a>
+                        </li>
+                    @endif
                     <li></li>
                     <li>
                         <form method="POST" action={{ route('logout') }} id="logout-form-{{ $logout_form_id }}">
@@ -62,16 +76,26 @@
                 </ul>
             </details>
         @else
-            <div class="flex gap-2">
-                <a class="btn" href="/sign-in">Sign In</a>
-                <a class="btn" href="/sign-up">Sign Up</a>
+            <div class="hidden gap-2 md:flex">
+                <a class="btn" href="{{ route('sign-in') }}">Sign In</a>
+                <a class="btn" href="{{ route('sign-up') }}">Sign Up</a>
             </div>
         @endauth
     </div>
 
 </div>
-@if (Session::has('message'))
+@if (Session::has('warning'))
     <div class="w-full p-2 text-center bg-yellow-200">
-        {{ Session::get('message') }}
+        {{ Session::get('warning') }}
+    </div>
+@endif
+@if (Session::has('error'))
+    <div class="w-full p-2 text-center bg-red-400">
+        {{ Session::get('error') }}
+    </div>
+@endif
+@if (Session::has('info'))
+    <div class="w-full p-2 text-center bg-blue-300">
+        {{ Session::get('info') }}
     </div>
 @endif

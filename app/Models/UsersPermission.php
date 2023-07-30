@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * App\Models\UsersPermission
@@ -32,4 +33,9 @@ class UsersPermission extends Model
         "user_id",
         "permission_id",
     ];
+
+    public function permission(): HasOne
+    {
+        return $this->hasOne(Permission::class, 'id', 'permission_id');
+    }
 }

@@ -5,11 +5,34 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\User;
+use App\Models\UserAddress;
+use App\Models\UsersPermission;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class UserProfileController extends Controller
 {
+
+    public function editPermissions(Request $request) {
+        $inputs = $request->all();
+
+        $request->validate([
+            "user_id" => ["required", "uuid", "exists:App\Models\User,id"],
+            "permission" => ["required", "array", 'min:0'],
+            'permission.*' => ["required", "uuid", "exists:App\Models\Permission,id"]
+        ]);
+
+        UsersPermission::query()->where("user_id", "=", $inputs["user_id"])->delete();
+
+        foreach ($inputs["permission"] as $permission) {
+            UsersPermission::query()->create([
+                "user_id" => $inputs["user_id"],
+                "permission_id" => $permission,
+            ]);
+        }
+
+        return redirect()->back();
+    }
 
     public function edit(Request $request) {
         $inputs = $request->all();
@@ -42,14 +65,20 @@ class UserProfileController extends Controller
         $user->civil_status = $inputs["civil_status"];
         $user->social_media = $inputs["social_media"];
 
+        if ($user->address) {
+            $address = $user->address;
+        } else {
+            $address = new UserAddress;
+        }
 
-        $user->address->address_line_1 = $inputs["address_line_1"];
-        $user->address->region_id = $inputs["region_id"];
-        $user->address->province_id = $inputs["province_id"];
-        $user->address->municipality_id = $inputs["municipality_id"];
-        $user->address->barangay_id = $inputs["barangay_id"];
 
-        $user->address->save();
+        $address->address_line_1 = $inputs["address_line_1"];
+        $address->region_id = $inputs["region_id"];
+        $address->province_id = $inputs["province_id"];
+        $address->municipality_id = $inputs["municipality_id"];
+        $address->barangay_id = $inputs["barangay_id"];
+
+        $address->save();
 
         $image = $request->file("image");
 
@@ -69,9 +98,11 @@ class UserProfileController extends Controller
             $user->profile_picture_id = $thumbnail->id;
         }
 
+        $user->address_id = $address->id;
+
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with(["info", "Successfully changed Personal Details"]);
     }
 
     public function showPersonalDetails() {
@@ -84,5 +115,9 @@ class UserProfileController extends Controller
 
     public function showAdoptions() {
         return view("user.adoptions");
+    }
+
+    public function showPrograms() {
+        return view("user.programs");
     }
 }

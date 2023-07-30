@@ -17,41 +17,13 @@
                     <div class="grid grid-cols-1 gap-6">
                         <input type="email" placeholder="Email" name="email"
                             class="w-full p-3 bg-gray-200 rounded-full">
-                        <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
-
-                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                        
                         <input type="password" placeholder="Password" name="password"
                             class="w-full p-3 bg-gray-200 rounded-full">
-                        <?php $__errorArgs = ['password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                            <?php echo e($message); ?>
-
-                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
+                        
                     </div>
 
-                    <div class="grid grid-cols-2">
-                        <div class="py-6 ">
-                            <input type="checkbox" id="remember" name="remember" value="remember">
-                            <label for="remember">Remember Password</label><br>
-                        </div>
-                        <div class="flex justify-end py-6">
-                            <a href="" class="underline underline-offset-1">forgot password?</a>
-                        </div>
-                    </div>
+                    
 
                     <div class="flex items-center justify-center pt-4">
                         <button type="submit"
@@ -68,17 +40,24 @@ unset($__errorArgs, $__bag); ?>
 
                 <div>
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Facebook
-                        </button>
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="<?php echo e(route('auth:google')); ?>">
+                            Continue with Google
+                        </a>
                     </div>
 
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold border border-slate-950 hover:bg-slate-800 hover:text-white rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Google
-                        </button>
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="<?php echo e(route('auth:facebook')); ?>">
+                            Continue with Facebook
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center pt-4">
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="<?php echo e(route('auth:twitter')); ?>">
+                            Continue with Twitter
+                        </a>
                     </div>
                 </div>
             </div>

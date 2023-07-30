@@ -20,36 +20,34 @@
         </div>
     </div>
 
-    <div>
-        <?php for($i = 0; $i < 4; $i++): ?>
-            <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('info-card', ['img' => './assets/store.jpg','title' => 'sample','description' => 'Furfecto Veterinary Services is a leading clinic
-                    providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
-                    personalized attention and advanced medical expertise. From routine check-ups to specialized
-                    treatments, Furfecto Veterinary Services ensures the health and well-being of your furry
-                    friends. With state-of-the-art facilities and a focus on preventive medicine, they prioritize
-                    individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
-                    pet healthcare.'])->html();
-} elseif ($_instance->childHasBeenRendered('CCprqLA')) {
-    $componentId = $_instance->getRenderedChildComponentId('CCprqLA');
-    $componentTag = $_instance->getRenderedChildComponentTagName('CCprqLA');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('CCprqLA');
-} else {
-    $response = \Livewire\Livewire::mount('info-card', ['img' => './assets/store.jpg','title' => 'sample','description' => 'Furfecto Veterinary Services is a leading clinic
-                    providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
-                    personalized attention and advanced medical expertise. From routine check-ups to specialized
-                    treatments, Furfecto Veterinary Services ensures the health and well-being of your furry
-                    friends. With state-of-the-art facilities and a focus on preventive medicine, they prioritize
-                    individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
-                    pet healthcare.']);
-    $html = $response->html();
-    $_instance->logRenderedChild('CCprqLA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
-?>
-        <?php endfor; ?>
+    <div class="px-4 md:px-8 lg:px-16">
+        <?php $__currentLoopData = $programs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $program): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div>
+                <div class="p-8 lg:pl-14 lg:pb-14 lg:pt-14 lg:pr-4">
+                    <div class="flex items-center justify-items-center">
+                        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.image','data' => ['image' => $program->thumbnail,'id' => ''.e($program->id).'','class' => 'object-cover w-32 h-32 md:h-32 md:w-64 program-image-preview']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('image'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['image' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($program->thumbnail),'id' => ''.e($program->id).'','class' => 'object-cover w-32 h-32 md:h-32 md:w-64 program-image-preview']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
+<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
+<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php endif; ?>
+                        <div class="flex flex-col justify-center col-span-4 p-10 text-justify">
+                            <h1 class="pb-8 text-3xl font-bold"><?php echo e($program->name); ?></h1>
+                            <p class="text-lg"><?php echo e($program->description); ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

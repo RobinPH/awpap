@@ -42,15 +42,15 @@
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('volunteer-card', ['img' => './assets/animalcare.jpeg','title' => 'Animal Care','description' => 'Volunteers who have had their pre-exposure rabies shots can walk and bathe the dogs, groom and socialize the cats, help with cleaning cages and feeding, and other tasks that require direct contact with animals.'])->html();
-} elseif ($_instance->childHasBeenRendered('263lj88')) {
-    $componentId = $_instance->getRenderedChildComponentId('263lj88');
-    $componentTag = $_instance->getRenderedChildComponentTagName('263lj88');
+} elseif ($_instance->childHasBeenRendered('TQDTFJA')) {
+    $componentId = $_instance->getRenderedChildComponentId('TQDTFJA');
+    $componentTag = $_instance->getRenderedChildComponentTagName('TQDTFJA');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('263lj88');
+    $_instance->preserveRenderedChild('TQDTFJA');
 } else {
     $response = \Livewire\Livewire::mount('volunteer-card', ['img' => './assets/animalcare.jpeg','title' => 'Animal Care','description' => 'Volunteers who have had their pre-exposure rabies shots can walk and bathe the dogs, groom and socialize the cats, help with cleaning cages and feeding, and other tasks that require direct contact with animals.']);
     $html = $response->html();
-    $_instance->logRenderedChild('263lj88', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('TQDTFJA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -84,11 +84,11 @@ echo $html;
                 <ul>
                     <li class="flex items-center pb-6 space-x-2">
                         <ion-icon name="call"></ion-icon>
-                        <span>0909 836 6911</span>
+                        <span>0960 529 8078</span>
                     </li>
                     <li class="flex items-center pb-6 space-x-2">
                         <ion-icon name="mail"></ion-icon>
-                        <span>email@gmail.com</span>
+                        <span>contactus@furfecto.com</span>
                     </li>
                 </ul>
             </div>

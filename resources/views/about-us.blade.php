@@ -23,16 +23,14 @@
 
     <div>
         <h1 class="pb-4 text-3xl font-bold text-center">Our Stand</h1>
-        @for ($i = 0; $i < 4; $i++)
-            <livewire:info-card img="./assets/store.jpg" title="sample"
-                description="Furfecto Veterinary Services is a leading clinic
-                    providing exceptional care for pets. Their dedicated team of skilled veterinarians offers
-                    personalized attention and advanced medical expertise. From routine check-ups to specialized
-                    treatments, Furfecto Veterinary Services ensures the health and well-being of your furry
-                    friends. With state-of-the-art facilities and a focus on preventive medicine, they prioritize
-                    individualized care and client satisfaction. Trust Furfecto Veterinary Services for top-notch
-                    pet healthcare." />
-        @endfor
+        <livewire:info-card img="./assets/store.jpg" title="Animal Expermentation"
+            description="Animals have their own rights and should not be treated as mere commodities for our scientific pursuits. It is essential to recognize that their capacity to experience pain, fear, and suffering is no different from our own. Placing them in laboratories, where they may endure distress and even death, raises serious ethical concerns." />
+        <livewire:info-card img="./assets/store.jpg" title="Animal Fighting"
+            description="Animals used in fights, such as dogs and roosters, are subjected to severe physical and emotional abuse. They are often forced into a life of violence and aggression through brutal training methods, denying them any chance of a normal and fulfilling existence. These creatures are living beings that feel pain, fear, and stress, just like humans, and they deserve to be treated with compassion and respect." />
+        <livewire:info-card img="./assets/store.jpg" title="Euthanasia/Mercy Killing"
+            description="Instead of euthanasia, we advocate for increasing efforts in animal adoption, supporting animal shelters and rescue organizations, promoting responsible pet ownership, and investing in comprehensive veterinary care to ensure animals receive the attention and care they deserve. By treating animals with compassion and empathy, we can create a world where their lives are valued and respected as an integral part of our shared ecosystem." />
+        <livewire:info-card img="./assets/store.jpg" title="Working Animals"
+            description="Our standpoint is that working animals should receive proper treatment, including consideration, sufficient care, shelter, nourishment, and access to water. They should not be subjected to excessive workloads or burdens, and ill-treatment should never force them to work" />
     </div>
 
     <div>
@@ -46,19 +44,19 @@
                         <div class="grid grid-cols-1 gap-10 p-8 md:gap-28 justify-items-center md:justify-items-start">
                             <div>
                                 <h2 class="text-2xl font-semibold text-blue-500">Contact Information</h2>
-                                <p class="text-sm text-gray-500">Say Something to start a live chat.</p>
                             </div>
 
                             <div class="">
                                 <ul class="">
                                     <li class="flex items-center pb-6 space-x-2">
-                                        <ion-icon name="call"></ion-icon><span>0909 836 6911</span>
+                                        <ion-icon name="call"></ion-icon><span>0960 529 8078</span>
                                     </li>
                                     <li class="flex items-center pb-6 space-x-2">
-                                        <ion-icon name="mail"></ion-icon><span>email@gmail.com</span>
+                                        <ion-icon name="mail"></ion-icon><span>contactus@furfecto.com</span>
                                     </li>
                                     <li class="flex items-center space-x-2">
-                                        <ion-icon name="location"></ion-icon><span>location</span>
+                                        <ion-icon name="location"></ion-icon><span>25 Juan Luna St, Bayambang,
+                                            Pangasinan</span>
                                     </li>
                                 </ul>
                             </div>
@@ -125,7 +123,8 @@
                         <div>
                             <h2 class="text-3xl font-bold text-blue-500">We are located here</h2>
                             <div class="flex items-center space-x-2">
-                                <ion-icon name="location"></ion-icon><span>location</span>
+                                <ion-icon name="location"></ion-icon><span>25 Juan Luna St, Bayambang,
+                                    Pangasinan</span>
                             </div>
                         </div>
 
@@ -149,10 +148,11 @@
                     </div>
 
                     <div class="flex items-center justify-center pt-6">
-                        <button type="button"
+                        <a href="https://www.google.com/maps/place/Furfecto+Veterinary+Services/@15.8060303,120.4546736,17z/data=!3m1!4b1!4m6!3m5!1s0x3391491ec8ab154d:0x30bbb1cc71de3c18!8m2!3d15.8060303!4d120.4572485!16s%2Fg%2F11kk1xqgzt?entry=ttu"
+                            target="_blank"
                             class="font-bold text-white hover:bg-gray-800 bg-slate-950 rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
                             Map
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -162,5 +162,7 @@
             </div>
         </div>
     </div>
+
+
 
 </x-layout.user>

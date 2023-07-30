@@ -63,11 +63,11 @@
                 <ul>
                     <li class="flex items-center pb-6 space-x-2">
                         <ion-icon name="call"></ion-icon>
-                        <span>0909 836 6911</span>
+                        <span>0960 529 8078</span>
                     </li>
                     <li class="flex items-center pb-6 space-x-2">
                         <ion-icon name="mail"></ion-icon>
-                        <span>email@gmail.com</span>
+                        <span>contactus@furfecto.com</span>
                     </li>
                 </ul>
             </div>

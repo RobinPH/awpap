@@ -27,6 +27,10 @@ return new class extends Migration
             $table->string("occupation", 128)->nullable();
             $table->string("social_media", 128)->nullable();
 
+            $table->string("google_id")->nullable();
+            $table->string("facebook_id")->nullable();
+            $table->string("twitter_id")->nullable();
+
             $table->date("birthdate")->nullable();
             $table->enum("civil_status", ['SINGLE', "MARRIED", "SEPARATED", "DIVORCED"])->nullable();
             $table->string('password');

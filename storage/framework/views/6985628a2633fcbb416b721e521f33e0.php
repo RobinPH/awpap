@@ -16,6 +16,8 @@
         ],
     ];
     
+    // dd($user);
+    
 ?>
 
 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
@@ -100,14 +102,14 @@
 <?php endif; ?>
 
             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'phone','label' => 'Phone','value' => ''.e($user->phone).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'phone','label' => 'Phone','value' => ''.e($user->phone).'','required' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.input.text'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['type' => 'text','name' => 'phone','label' => 'Phone','value' => ''.e($user->phone).'']); ?>
+<?php $component->withAttributes(['type' => 'text','name' => 'phone','label' => 'Phone','value' => ''.e($user->phone).'','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -117,14 +119,14 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 lg:gap-y-2 lg:gap-x-12">
                 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'occupation','label' => 'Occupation','value' => ''.e($user->occupation).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'occupation','label' => 'Occupation','value' => ''.e($user->occupation).'','required' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.input.text'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['type' => 'text','name' => 'occupation','label' => 'Occupation','value' => ''.e($user->occupation).'']); ?>
+<?php $component->withAttributes(['type' => 'text','name' => 'occupation','label' => 'Occupation','value' => ''.e($user->occupation).'','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -132,14 +134,14 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
                 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'social_media','label' => 'Social Media Link','value' => ''.e($user->social_media).'']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.forms.input.text','data' => ['type' => 'text','name' => 'social_media','label' => 'Social Media Link','value' => ''.e($user->social_media).'','required' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('forms.input.text'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['type' => 'text','name' => 'social_media','label' => 'Social Media Link','value' => ''.e($user->social_media).'']); ?>
+<?php $component->withAttributes(['type' => 'text','name' => 'social_media','label' => 'Social Media Link','value' => ''.e($user->social_media).'','required' => true]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -169,15 +171,15 @@
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('forms.input.address', ['address' => $user->address])->html();
-} elseif ($_instance->childHasBeenRendered('PhPvdNd')) {
-    $componentId = $_instance->getRenderedChildComponentId('PhPvdNd');
-    $componentTag = $_instance->getRenderedChildComponentTagName('PhPvdNd');
+} elseif ($_instance->childHasBeenRendered('oKLdXuT')) {
+    $componentId = $_instance->getRenderedChildComponentId('oKLdXuT');
+    $componentTag = $_instance->getRenderedChildComponentTagName('oKLdXuT');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('PhPvdNd');
+    $_instance->preserveRenderedChild('oKLdXuT');
 } else {
     $response = \Livewire\Livewire::mount('forms.input.address', ['address' => $user->address]);
     $html = $response->html();
-    $_instance->logRenderedChild('PhPvdNd', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('oKLdXuT', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

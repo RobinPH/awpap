@@ -9,17 +9,17 @@
                     <div class="grid grid-cols-1 gap-6">
                         <input type="email" placeholder="Email" name="email"
                             class="w-full p-3 bg-gray-200 rounded-full">
-                        @error('email')
+                        {{-- @error('email')
                             {{ $message }}
-                        @enderror
+                        @enderror --}}
                         <input type="password" placeholder="Password" name="password"
                             class="w-full p-3 bg-gray-200 rounded-full">
-                        @error('password')
+                        {{-- @error('password')
                             {{ $message }}
-                        @enderror
+                        @enderror --}}
                     </div>
 
-                    <div class="grid grid-cols-2">
+                    {{-- <div class="grid grid-cols-2">
                         <div class="py-6 ">
                             <input type="checkbox" id="remember" name="remember" value="remember">
                             <label for="remember">Remember Password</label><br>
@@ -27,7 +27,7 @@
                         <div class="flex justify-end py-6">
                             <a href="" class="underline underline-offset-1">forgot password?</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="flex items-center justify-center pt-4">
                         <button type="submit"
@@ -44,17 +44,24 @@
 
                 <div>
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Facebook
-                        </button>
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:google') }}">
+                            Continue with Google
+                        </a>
                     </div>
 
                     <div class="flex items-center justify-center pt-4">
-                        <button type="button"
-                            class="w-full font-bold border border-slate-950 hover:bg-slate-800 hover:text-white rounded-full text-sm px-5 py-2.5 mr-2 mb-2 ">
-                            Continue with Google
-                        </button>
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:facebook') }}">
+                            Continue with Facebook
+                        </a>
+                    </div>
+
+                    <div class="flex items-center justify-center pt-4">
+                        <a class="w-full font-bold  border border-slate-950 hover:bg-slate-800 hover:text-white  rounded-full text-sm px-5 py-2.5 mr-2 mb-2 "
+                            href="{{ route('auth:twitter') }}">
+                            Continue with Twitter
+                        </a>
                     </div>
                 </div>
             </div>

@@ -11,20 +11,28 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                 </svg>
             </label>
-            <ul tabindex="0" class="p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                <li><a href="/">Home</a></li>
+            <ul tabindex="0" class="z-20 p-2 mt-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                <li><a href="<?php echo e(route('home')); ?>">Home</a></li>
                 <li><a href="<?php echo e(route('animal')); ?>">Animals</a></li>
                 <li><a href="<?php echo e(route('about-us')); ?>">About Us</a></li>
                 <li><a href="<?php echo e(route('program')); ?>">Programs</a></li>
                 <li><a href="<?php echo e(route('guideline')); ?>">Guidelines</a></li>
                 <li><a href="<?php echo e(route('join-us')); ?>">Join Us</a></li>
+                <?php if(auth()->guard()->check()): ?>
+                <?php else: ?>
+                    <span class="md:hidden">
+                        <li></li>
+                        <li><a href="<?php echo e(route('sign-in')); ?>">Sign In</a></li>
+                        <li><a href="<?php echo e(route('sign-up')); ?>">Sign Up</a></li>
+                    </span>
+                <?php endif; ?>
             </ul>
         </div>
-        <a class="text-xl normal-case btn btn-ghost">FURFECTO</a>
+        <a class="hidden text-xl text-center normal-case sm:block btn btn-ghost" href="<?php echo e(route('home')); ?>">FURFECTO</a>
     </div>
-    <div class="hidden navbar-center lg:flex">
+    <div class="z-10 hidden navbar-center lg:flex">
         <ul class="px-1 menu menu-horizontal">
-            <li><a href="/">Home</a></li>
+            <li><a href="<?php echo e(route('home')); ?>">Home</a></li>
             <li><a href="<?php echo e(route('animal')); ?>">Animals</a></li>
             <li><a href="<?php echo e(route('about-us')); ?>">About Us</a></li>
             <li><a href="<?php echo e(route('program')); ?>">Programs</a></li>
@@ -36,7 +44,7 @@
         <?php if(auth()->guard()->check()): ?>
             <details class="dropdown dropdown-end">
                 <summary class="flex gap-2 m-1 btn">
-                    <div class="flex flex-col items-end normal-case">
+                    <div class="flex-col items-end hidden normal-case sm:flex">
                         <div>
                             <?php echo e(Auth::user()->first_name . ' ' . Auth::user()->last_name); ?>
 
@@ -68,6 +76,12 @@
                 </summary>
                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                     <li><a href="<?php echo e(route('profile')); ?>">Profile</a></li>
+                    <?php if(Auth::user()->permissionCan('admin')): ?>
+                        <li></li>
+                        <li>
+                            <a href="<?php echo e(route('admin:analytics:web-traffic')); ?>">Admin Page</a>
+                        </li>
+                    <?php endif; ?>
                     <li></li>
                     <li>
                         <form method="POST" action=<?php echo e(route('logout')); ?> id="logout-form-<?php echo e($logout_form_id); ?>">
@@ -78,17 +92,29 @@
                 </ul>
             </details>
         <?php else: ?>
-            <div class="flex gap-2">
-                <a class="btn" href="/sign-in">Sign In</a>
-                <a class="btn" href="/sign-up">Sign Up</a>
+            <div class="hidden gap-2 md:flex">
+                <a class="btn" href="<?php echo e(route('sign-in')); ?>">Sign In</a>
+                <a class="btn" href="<?php echo e(route('sign-up')); ?>">Sign Up</a>
             </div>
         <?php endif; ?>
     </div>
 
 </div>
-<?php if(Session::has('message')): ?>
+<?php if(Session::has('warning')): ?>
     <div class="w-full p-2 text-center bg-yellow-200">
-        <?php echo e(Session::get('message')); ?>
+        <?php echo e(Session::get('warning')); ?>
+
+    </div>
+<?php endif; ?>
+<?php if(Session::has('error')): ?>
+    <div class="w-full p-2 text-center bg-red-400">
+        <?php echo e(Session::get('error')); ?>
+
+    </div>
+<?php endif; ?>
+<?php if(Session::has('info')): ?>
+    <div class="w-full p-2 text-center bg-blue-300">
+        <?php echo e(Session::get('info')); ?>
 
     </div>
 <?php endif; ?>

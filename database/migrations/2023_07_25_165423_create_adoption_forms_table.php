@@ -37,6 +37,8 @@ return new class extends Migration
             $table->uuid('adoption_form_status_id');
             $table->foreign('adoption_form_status_id')->references('id')->on('adoption_form_statuses')->onDelete('cascade');
 
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }
