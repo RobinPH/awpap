@@ -25,7 +25,7 @@ class WebTraffic extends Component
 
         $this->ref_traffics = DB::table('web_traffic')->selectRaw('ref, COUNT(*) as count')->groupBy('ref')->orderBy('count', 'desc')->get()->toArray();
 
-        $this->history = DB::table('web_traffic')->selectRaw("count(id) as count, MIN(created_at) as start_time, MAX(created_at) as end_time")->where("created_at", ">=", "DATE_SUB(CONVERT_TZ(NOW(), @@session.time_zone, '+00:00'), INTERVAL 10 MINUTE)")->groupByRaw("date_format(created_at, '%Y%m%d%H')")->orderBy('created_at', 'desc')->get()->toArray();
+        $this->history = DB::table('web_traffic')->selectRaw("count(id) as count, MIN(created_at) as start_time, MAX(created_at) as end_time")->where("created_at", ">=", "DATE_SUB(CONVERT_TZ(NOW(), @@session.time_zone, '+00:00'), INTERVAL 10 MINUTE)")->groupByRaw("date_format(created_at, '%Y%m%d%H')")->orderBy('start_time', 'desc')->get()->toArray();
 
         $this->recents = ModelsWebTraffic::query()->orderBy('created_at', "desc")->take($this->recent_count)->get()->toArray();
     }
