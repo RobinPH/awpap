@@ -16,9 +16,15 @@ class ArticleSeeder extends Seeder
         ]);
 
         $storageImagePath = public_path() . "/storage/images/";
+        $storageExternalImagePath = public_path() . "/assets/images/external";
+        $paths = explode("/", $inputs["thumbnail"]);
+        $localExternal = $storageExternalImagePath . "/" . end($paths) . ".png";
 
         try {
-            copy($inputs["thumbnail"] . ".png", $storageImagePath . $thumbnail->id);
+            if (!file_exists($localExternal)) {
+                copy($inputs["thumbnail"] . ".png", $localExternal);
+            }
+            copy($localExternal, $storageImagePath . $thumbnail->id);
         } catch (Exception $e) {}
 
         Article::query()->create([

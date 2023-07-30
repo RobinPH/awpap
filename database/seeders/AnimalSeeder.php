@@ -203,9 +203,15 @@ class AnimalSeeder extends Seeder
         ]);
 
         $storageImagePath = public_path() . "/storage/images/";
+        $storageExternalImagePath = public_path() . "/assets/images/external";
+        $paths = explode("/", $inputs["ProfilePicture"]);
+        $localExternal = $storageExternalImagePath . "/" . end($paths) . ".png";
 
         try {
-            copy($inputs["ProfilePicture"] . ".png", $storageImagePath . $thumbnail->id);
+            if (!file_exists($localExternal)) {
+                copy($inputs["ProfilePicture"] . ".png", $localExternal);
+            }
+            copy($localExternal, $storageImagePath . $thumbnail->id);
         } catch (Exception $e) {}
 
         Animal::query()->create([
