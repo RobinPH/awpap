@@ -12,16 +12,19 @@ class AddressRegionSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = file_get_contents(public_path() . '/assets/json/address/' . 'region.json');
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
 
-        $regions = json_decode($json, true);
+            $json = file_get_contents(public_path() . '/assets/json/address/' . 'region.json');
 
-        foreach ($regions as $region) {
+            $regions = json_decode($json, true);
+
+            foreach ($regions as $region) {
             AddressRegion::query()->create([
                 "real_id" => $region["region_id"],
                 "name" => $region["region_name"],
                 "description" => $region["region_description"],
             ]);
         }
+    }
     }
 }

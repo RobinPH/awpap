@@ -25,7 +25,9 @@ class ArticleSeeder extends Seeder
                 copy($inputs["thumbnail"] . ".png", $localExternal);
             }
             copy($localExternal, $storageImagePath . $thumbnail->id);
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+            print_r($e);
+        }
 
         Article::query()->create([
             "title" => $inputs["title"],

@@ -13,6 +13,7 @@ class AddressBarangaySeeder extends Seeder
      */
     public function run(): void
     {
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
         $json = file_get_contents(public_path() . '/assets/json/address/' . 'barangay.json');
 
         $barangays = json_decode($json, true);
@@ -40,5 +41,6 @@ class AddressBarangaySeeder extends Seeder
 
             }
         }
+    }
     }
 }

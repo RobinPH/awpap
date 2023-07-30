@@ -13,7 +13,8 @@ class AddressProvinceSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = file_get_contents(public_path() . '/assets/json/address/' . 'province.json');
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
+            $json = file_get_contents(public_path() . '/assets/json/address/' . 'province.json');
 
         $provinces = json_decode($json, true);
 
@@ -40,6 +41,7 @@ class AddressProvinceSeeder extends Seeder
                 ]);
 
             }
+        }
         }
     }
 }

@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_provinces', function (Blueprint $table) {
-            $table->uuid("id")->primary();
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
+
+            Schema::create('address_provinces', function (Blueprint $table) {
+                $table->uuid("id")->primary();
             $table->integer("real_id")->unique();
 
             $table->uuid("region_id");
@@ -23,12 +25,16 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_provinces');
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
+
+            Schema::dropIfExists('address_provinces');
+        }
     }
 };

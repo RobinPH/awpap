@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('address_regions', function (Blueprint $table) {
-            $table->uuid("id")->primary();
-            $table->integer("real_id")->unique();
-            $table->string("name", 255);
-            $table->string("description", 255)->nullable();
-            $table->timestamps();
-        });
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
+
+            Schema::create('address_regions', function (Blueprint $table) {
+                $table->uuid("id")->primary();
+                $table->integer("real_id")->unique();
+                $table->string("name", 255);
+                $table->string("description", 255)->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -25,6 +28,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('address_regions');
+        if (boolval(env("MIGRATE_ADDRESS_TABLES", true))) {
+
+            Schema::dropIfExists('address_regions');
+        }
     }
 };
